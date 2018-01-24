@@ -66,12 +66,12 @@ public function __construct()
 	
 	public function view_profiles()
 	{
-		
-		$this->load->view('html/admin/templates/header');
+		$data['page_title'] = "Lawyer Profiles";
+		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar');
 		$this->load->view('html/admin/templates/menu_footer.php');
 		$this->load->view('html/admin/templates/top_navigation.php');
-		$this->load->view('html/admin/index');
+		$this->load->view('html/admin/profiles');
 		$this->load->view('html/admin/templates/footer');		
 		
 	}

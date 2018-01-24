@@ -54,6 +54,7 @@ $route['administrator'] = 'Dashboard';
 $route['administrator/users'] = 'Users';
 $route['administrator/user_roles'] = 'Users/view_user_roles';
 $route['administrator/new_lawyer_form'] = 'Lawyers';
+$route['administrator/profiles'] = 'Lawyers/view_profiles';
 $route['administrator/new_user_form'] = 'Users/new_user_form';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

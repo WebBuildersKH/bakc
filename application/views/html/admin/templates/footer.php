@@ -19,6 +19,9 @@
   <!--  <script src="public/vendors/nprogress/nprogress.js"></script>-->
     <!-- iCheck -->
     <script src="<?php echo base_url();?>public/vendors/iCheck/icheck.min.js"></script>
+
+    <!-- Form Validation-->
+	<script src="<?php echo base_url();?>public/vendors/parsleyjs/dist/parsley.min.js"></script>
     <!-- Datatables -->
     <script src="<?php echo base_url();?>public/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url();?>public/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
