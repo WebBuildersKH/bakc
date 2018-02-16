@@ -488,7 +488,7 @@ body .container.body .right_col {
 .top_nav .nav .open>a,
 .top_nav .nav .open>a:focus,
 .top_nav .nav .open>a:hover {
-    background: #D9DEE4
+    background: #4a4e51
 }
 body {
     color: #73879C;
@@ -772,7 +772,9 @@ a:focus {
 .nav.side-menu>li>a,
 .nav.child_menu>li>a {
     color: #E7E7E7;
-    font-weight: 500
+    font-weight: 400;
+	font-size: 16px;
+	font-family: Khmer OS Siemreap, Kh Battambang;
 }
 .nav.child_menu li li:hover,
 .nav.child_menu li li.active {
@@ -832,7 +834,7 @@ a:focus {
     text-decoration: none
 }
 .nav.navbar-nav>li>a {
-    color: #515356 !important
+    color: #FFFFFF
 }
 .nav.top_menu>li>a {
     position: relative;
@@ -882,8 +884,9 @@ a:focus {
 }
 .nav.child_menu>li>a {
     color: rgba(255, 255, 255, 0.75);
-    font-size: 12px;
-    padding: 9px
+    font-size: 14px;
+	font-family: Khmer OS Siemreap, Kh Battambang;
+    padding: 9px;
 }
 .panel_toolbox {
     float: right;
@@ -1081,13 +1084,27 @@ h2 {
     float: right
 }
 .x_title h2 {
-    margin: 5px 0 6px;
+   /* margin: 5px 0 6px; */
+	font-family: Khmer OS Muol, Time Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
     float: left;
+	padding: 5px;
     display: block;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap
 }
+
+.x_title h3 {
+   /* margin: 5px 0 6px; */
+	font-family: Khmer OS Muol, Time Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+    float: left;
+	padding: 9px;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
 .x_title h2 small {
     margin-left: 10px
 }
@@ -2174,6 +2191,9 @@ span.section {
     border-radius: 0;
     width: 100%
 }
+
+
+
 .form-horizontal .control-label {
     padding-top: 8px
 }
@@ -2212,6 +2232,12 @@ legend {
 }
 .form-group {
     margin-bottom: 10px
+}
+
+.form-group .control-label-kh{
+	font-family: Khmer OS Siemreap, Kh Battambang;
+	font-size: 16px;
+	font-weight: 500;
 }
 .validate {
     margin-top: 10px
@@ -2409,6 +2435,44 @@ a.btn-danger {
     font-size: 10px;
     font-weight: 400
 }
+
+.btn.btn-app1 {
+    position: relative;
+    padding: 0px 0px;
+    margin: 0 0 10px 10px;
+    min-width: 60px;
+    height: 40px;
+    box-shadow: none;
+    border-radius: 0;
+    text-align: center;
+    color: #666;
+   
+    font-size: 12px
+}
+
+.btn.btn-app1>.fa,
+.btn.btn-app1>.glyphicon,
+.btn.btn-app1>.ion {
+    font-size: 20px;
+    display: block
+}
+.btn.btn-app1:hover {
+    background: #f4f4f4;
+    color: #444;
+    border-color: #aaa
+}
+.btn.btn-app1:active,
+.btn.btn-app1:focus {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+}
+.btn.btn-app1>.badge {
+    position: absolute;
+    top: -3px;
+    right: -10px;
+    font-size: 10px;
+    font-weight: 400
+}
+
 textarea {
     padding: 10px;
     vertical-align: top;

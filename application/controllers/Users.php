@@ -16,21 +16,6 @@ public function __construct()
 	}*/
 }	
 	
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
 	public function save()
 	{
 /*		if($this->input->post('staffid') && $this->input->post('username') && $this->input->post('password'))
@@ -50,13 +35,8 @@ public function __construct()
 	public function index()
 	{
 
-/*		$data['main_content'] = 'users.php';
-		$data['userList'] = $this->users_model->get_data();
-		$data['roleList'] = $this->users_roles_model->get_data();
-		$data['staffList'] = $this->staff_model->get_data();
-		$data['user_menu_class'] = 'class="active"';*/
-		//$this->load->view('html/admin/templates/header', $data);
-		$data['page_title'] = "User List";
+		//$data['page_title'] = "Manage Users - User List";
+		$data['page_title'] = $this->lang->line('users_menu').' - '.$this->lang->line('users_menu_list');
 		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar');
 		$this->load->view('html/admin/templates/menu_footer.php');
@@ -67,7 +47,7 @@ public function __construct()
 	
 	public function new_user_form()
 	{
-		$data['page_title'] = "Add New User";
+		$data['page_title'] = $this->lang->line('users_menu').' - '.$this->lang->line('users_menu_add');
 		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar');
 		$this->load->view('html/admin/templates/menu_footer.php');
@@ -78,7 +58,7 @@ public function __construct()
 	
 	public function view_user_roles()
 	{
-		$data['page_title'] = "User Roles";
+		$data['page_title'] = $this->lang->line('users_menu').' - '.$this->lang->line('users_auth_list');
 		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar');
 		$this->load->view('html/admin/templates/menu_footer.php');
@@ -88,5 +68,19 @@ public function __construct()
 		
 		
 	}
+	
+	public function change_passwd_form()
+	{
+		$data['page_title'] = $this->lang->line('users_menu').' - '.$this->lang->line('change_passwd');
+		$this->load->view('html/admin/templates/header', $data);
+		$this->load->view('html/admin/templates/sidebar');
+		$this->load->view('html/admin/templates/menu_footer.php');
+		$this->load->view('html/admin/templates/top_navigation.php');
+		$this->load->view('html/admin/change_passwd');
+		$this->load->view('html/admin/templates/footer');
+		
+		
+	}	
+	
 	
 }

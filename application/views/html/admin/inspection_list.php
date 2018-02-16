@@ -7,7 +7,7 @@
 			   <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3><?php echo $this->lang->line('lawyer_list'); ?></h3>
+                    <h3><?php echo $this->lang->line('inspection_list'); ?></h3>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -27,11 +27,9 @@
                   </div>
                   <div class="x_content">
 				<div class="form-group">
-				 	 <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg"><label class="control-label-kh">បញ្ចូលទិន្នន័យមេធាវីថ្មី</label></button>
+				 	 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><label class="control-label-kh">បញ្ចូលទិន្នន័យមេធាវីថ្មី</label></button>
 					
-					 <button type="button" class="btn btn-success btn-sm"><label class="control-label-kh">តាមដានលំហូរឯកសារ</label></button>
-					
-					 <button type="button" class="btn btn-success btn-sm"><label class="control-label-kh">Update តារាង</label></button>	
+					 <button type="button" class="btn btn-primary"><label class="control-label-kh">Update តារាង</label></button>
 				</div>
 				
 				 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">

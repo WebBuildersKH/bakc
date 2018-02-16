@@ -1,43 +1,40 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Upload extends CI_Controller {
 
-public function __construct()
-{
-	parent::__construct();
-	$FILE_TYPE_LIST = array(".pdf",".doc",".docx",".jpg",".jpeg");
-}	
-	
+        public function __construct()
+        {
+                parent::__construct();
+                $this->load->helper(array('form', 'url'));
+        }
 
-public function upload($file)
-{
-	$file_ext = $this->get_file_ext($file);
-	
-	if($this->validate($file_ext))
-	{
-		
-		//Upload file
-		
-	}
-	
-}
+        public function index()
+        {
+                $this->load->view('upload_form', array('error' => ' ' ));
+        }
 
-private function validate($file_ext)
-{
-	if(in_array($file_ext,$FILE_TYPE_LIST))
-		return true;
-	
-	return false;
-	
-}
+        public function do_upload()
+        {
+                $config['upload_path']          = './uploads/';
+                $config['allowed_types']        = 'gif|jpg|png|pfd|doc|docx';
+                $config['max_size']             = 4096; //4 MB
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
 
-private function get_file_ext($file)
-{
-	
-	return "pdf";
-	
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('userfile'))
+                {
+                        $error = array('error' => $this->upload->display_errors());
+
+                        $this->load->view('upload_form', $error);
+                }
+                else
+                {
+                        $data = array('upload_data' => $this->upload->data());
+
+                        $this->load->view('upload_success', $data);
+                }
+        }
 }
-	
-	
-}
+?>

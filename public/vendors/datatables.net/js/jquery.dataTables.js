@@ -6408,8 +6408,8 @@
 			(settings ? 'table id='+settings.sTableId+' - ' : '')+msg;
 	
 		if ( tn ) {
-			msg += '. For more information about this error, please see '+
-			'http://datatables.net/tn/'+tn;
+			msg += '. For more information about this error, please see www. datatables. net/tn/';
+			//'http://datatables.net/tn/'+tn;
 		}
 	
 		if ( ! level  ) {
@@ -11395,8 +11395,8 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
-	
+			//"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "បង្ហាញពី _START_ ទៅ _END_ នៃ _TOTAL_ ទិន្នន័យជាចំនួនសរុប",
 	
 			/**
 			 * Display information string for when the table is empty. Typically the
@@ -11556,8 +11556,8 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
-	
+			//"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "បង្ហាញ _MENU_ ទិន្នន័យ",
 	
 			/**
 			 * When using Ajax sourced data and during the first draw when DataTables is
@@ -11636,7 +11636,8 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			//"sSearch": "Search:",
+			"sSearch": "ស្វែងរក:",
 	
 	
 			/**

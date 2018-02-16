@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Lawyers extends CI_Controller {
+class Inspection extends CI_Controller {
 
 public function __construct()
 {
@@ -36,27 +36,15 @@ public function __construct()
 	{
 
 		//$data['page_title'] = "Lawyers - Add New Lawyer";
-		$data['page_title'] = $this->lang->line('lawyer_menu').' - '.$this->lang->line('lawyer_menu_add');
+		$data['page_title'] = $this->lang->line('inspection_list');
 		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar');
 		$this->load->view('html/admin/templates/menu_footer.php');
 		$this->load->view('html/admin/templates/top_navigation.php');
-		$this->load->view('html/admin/new_lawyer_form1');
+		$this->load->view('html/admin/inspection_list');
 		$this->load->view('html/admin/templates/footer');
 	}
 	
-	public function view_profiles()
-	{
-		//$data['page_title'] = "Lawyers - Lawyer Profiles";
-		$data['page_title'] = $this->lang->line('lawyer_menu').' - '.$this->lang->line('lawyer_menu_profiles');
-		$this->load->view('html/admin/templates/header', $data);
-		$this->load->view('html/admin/templates/sidebar');
-		$this->load->view('html/admin/templates/menu_footer.php');
-		$this->load->view('html/admin/templates/top_navigation.php');
-		$this->load->view('html/admin/profiles');
-		$this->load->view('html/admin/templates/footer');		
-		
-	}
 	
 	
 }

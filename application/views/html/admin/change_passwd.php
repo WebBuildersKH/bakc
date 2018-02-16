@@ -9,7 +9,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3><?php echo $this->lang->line('users_menu_add'); ?></h3>
+                    <h3><?php echo $this->lang->line('change_passwd'); ?></h3>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -39,43 +39,17 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="passwd">លេខសំងាត់ (Password) <span class="required">*</span>
+                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="passwd">លេខសំងាត់ចាស់ (Old Password) <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="passwd" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="name">ឈ្មោះបុគ្កលិក (Staff Name)<span class="required">*</span>
+                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="name">លេខសំងាត់ថ្មី (New Password)<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="last-name" name="name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="staff-id" class="control-label-kh col-md-3 col-sm-3 col-xs-12">លេខសំគាល់ខ្លួន (Staff ID)</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="staff-id" class="form-control col-md-7 col-xs-12" type="text" name="staff-id">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12">ភេទ (Gender)</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <div id="gender" class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="gender" value="male"> &nbsp; <label class="control-label-kh">ប្រុស (Male)</label>&nbsp;
-                            </label>
-                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="gender" value="female"> <label class="control-label-kh">ស្រី (Female)</label>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12">ថ្ងៃ ខែ ឆ្នាំកំណើត (Date Of Birth) <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
                         </div>
                       </div>
                       <div class="ln_solid"></div>
