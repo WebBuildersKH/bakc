@@ -8,10 +8,12 @@ $route['administrator/users'] = 'Users';
 $route['administrator/user_roles'] = 'Users/view_user_roles';
 $route['administrator/new_lawyer_form'] = 'Lawyers';
 $route['administrator/profiles'] = 'Lawyers/view_profiles';
+$route['administrator/view_profile'] = 'Lawyers/view_profile';
 $route['administrator/new_user_form'] = 'Users/new_user_form';
 
 $route['administrator/change_passwd'] = 'Users/change_passwd_form';
 
+$route['administrator/document_status'] = 'Documents/view_doc_status';
 
 $route['administrator/inspection_list'] = 'Inspection';
 

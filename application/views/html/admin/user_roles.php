@@ -30,14 +30,15 @@
                     <p class="text-muted font-13 m-b-30">
                       The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
                     </p>
+				   <div class="form-group">	  
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>      
-                          <th>No</th>
-						  <th>Login Usersname</th>
-                          <th>Authorised Access</th>
-						  <th>Creation Date</th>
-						  <th>Revocation</th>	
+						  <th><label class="control-label-kh"><b>ល.រ</b></label></th>
+						  <th><label class="control-label-kh"><b>ឈ្មោះសំគាល់</b></label></th>
+                          <th><label class="control-label-kh"><b>មានសិទ្ធជា</b></label></th>
+						  <th><label class="control-label-kh"><b>បង្កើតនៅថ្ងៃ</b></label></th>
+						  <th><label class="control-label-kh"><b>ការដកសិទ្ធវិញ</b></label></th>	
                         </tr>
                       </thead>
                       <tbody>
@@ -46,7 +47,7 @@
 						  <td>ponleu</td>
                           <td>Super User</td>
                           <td>2011/04/25</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-remove"></i> Revoke</a>
+						  <td><a class="btn btn-app1"><i class="fa fa-remove"></i><label class="control-label-kh">ដកសិទ្ធ</label></a>
                           </td>
                         </tr>
                         <tr>
@@ -54,7 +55,7 @@
 						  <td>yanno</td>
                           <td>Admin</td>
                           <td>2011/04/25</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-remove"></i> Revoke</a>
+						  <td><a class="btn btn-app1"><i class="fa fa-remove"></i><label class="control-label-kh">ដកសិទ្ធ</label></a>
                           </td>
                         </tr>                       
                         <tr>
@@ -62,7 +63,7 @@
 						  <td>dara</td>
                           <td>Inspection</td>
                           <td>2011/04/25</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-remove"></i> Revoke</a>
+						  <td><a class="btn btn-app1"><i class="fa fa-remove"></i><label class="control-label-kh">ដកសិទ្ធ</label></a>
                           </td>
                         </tr>
                         <tr>
@@ -70,7 +71,7 @@
 						  <td>khim</td>
                           <td>Legal Aids</td>
                           <td>2011/04/25</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-remove"></i> Revoke</a>
+						  <td><a class="btn btn-app1"><i class="fa fa-remove"></i><label class="control-label-kh">ដកសិទ្ធ</label></a>
                           </td>
                         </tr>   
                         <tr>
@@ -78,11 +79,13 @@
 						  <td>seng</td>
                           <td>Lawyer Profile</td>
                           <td>2011/04/25</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-remove"></i> Revoke</a>
+						  <td><a class="btn btn-app1"><i class="fa fa-remove"></i><label class="control-label-kh">ដកសិទ្ធ</label></a>
                           </td>
                         </tr>   						  
                       </tbody>
                     </table>
+				  </div>	   
+					   
                   </div>
                 </div>
               </div>

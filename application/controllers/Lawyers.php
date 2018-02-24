@@ -58,5 +58,16 @@ public function __construct()
 		
 	}
 	
-	
+	public function view_profile()
+	{
+		//$data['page_title'] = "Lawyers - Lawyer Profiles";
+		$data['page_title'] = $this->lang->line('lawyer_menu').' - '.$this->lang->line('lawyer_menu_profiles');
+		$this->load->view('html/admin/templates/header', $data);
+		$this->load->view('html/admin/templates/sidebar');
+		$this->load->view('html/admin/templates/menu_footer.php');
+		$this->load->view('html/admin/templates/top_navigation.php');
+		$this->load->view('html/admin/view_profile');
+		$this->load->view('html/admin/templates/footer');		
+		
+	}
 }

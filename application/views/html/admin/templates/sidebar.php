@@ -14,12 +14,12 @@
                     </ul>
                   </li>
 					
-				  <li><a><i class="fa fa-gavel"></i> <?php echo $this->lang->line('legalaids_menu'); ?> <span class="fa fa-chevron-down"></span></a>
+	<!--			  <li><a><i class="fa fa-gavel"></i> <?php //echo $this->lang->line('legalaids_menu'); ?> <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Information</a></li>
                     </ul>
                   </li>
-					
+		-->			
 				  <li><a><i class="fa fa-eye"></i> <?php echo $this->lang->line('inspection_menu'); ?> <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li>
