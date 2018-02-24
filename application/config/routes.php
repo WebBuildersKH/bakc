@@ -12,6 +12,8 @@ $route['administrator/view_profile'] = 'Lawyers/view_profile';
 $route['administrator/new_user_form'] = 'Users/new_user_form';
 
 $route['administrator/change_passwd'] = 'Users/change_passwd_form';
+$route['administrator/change_passwd_post'] = 'Users/change_passwd';
+$route['administrator/create_user_post'] = 'Users/create_user';
 
 $route['administrator/document_status'] = 'Documents/view_doc_status';
 

@@ -25,9 +25,11 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
-                    </p>
+                  <div class="form-group">
+                       <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">
+                       <label class="control-label-kh">បង្កើតអ្នកប្រើថ្មី</label></button>                
+                       <button type="button" class="btn btn-success btn-sm"><label class="control-label-kh">Update តារាង</label></button>	
+                  </div>
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>      
@@ -50,7 +52,7 @@
                           <td>2011/04/25</td>
                           <td>2011/04/25</td>
 						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-edit"></i> Edit</a>
+						  <td><a class="btn btn-app1"><i class="glyphicon glyphicon-edit"></i> Edit</a>
                           </td>
                         </tr>
                         <tr>
@@ -61,7 +63,7 @@
                           <td>2011/04/25</td>
                           <td>2011/04/25</td>
 						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-edit"></i> Edit</a>
+						  <td><a class="btn btn-app1"><i class="glyphicon glyphicon-edit"></i> Edit</a>
                           </td>
                         </tr>                       
                         <tr>
@@ -72,7 +74,7 @@
                           <td>2011/04/25</td>
                           <td>2011/04/25</td>
 						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-edit"></i> Edit</a>
+						  <td><a class="btn btn-app1"><i class="glyphicon glyphicon-edit"></i> Edit</a>
                           </td>
                         </tr>
                         <tr>
@@ -83,7 +85,7 @@
                           <td>2011/04/25</td>
                           <td>2011/04/25</td>
 						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-edit"></i> Edit</a>
+						  <td><a class="btn btn-app1"><i class="glyphicon glyphicon-edit"></i> Edit</a>
                           </td>
                         </tr>   
                         <tr>
@@ -94,7 +96,7 @@
                           <td>2011/04/25</td>
                           <td>2011/04/25</td>
 						  <td>Close</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-edit"></i> Edit</a>
+						  <td><a class="btn btn-app1"><i class="glyphicon glyphicon-edit"></i> Edit</a>
                           </td>
                         </tr>   						  
                       </tbody>

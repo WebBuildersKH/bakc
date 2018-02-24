@@ -27,9 +27,10 @@
                     <div class="clearfix"></div>
                   </div>
 				  <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
-                    </p>
+            <div class="form-group">
+              <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">
+              <label class="control-label-kh">បង្កើតការផ្តល់សិទ្ធអោយអ្នកប្រើ</label></button>                
+            </div>
 				   <div class="form-group">	  
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>

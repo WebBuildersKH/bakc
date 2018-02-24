@@ -35,27 +35,27 @@
                         <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="username">ឈ្មោះសំគាល់ (Username) <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="username" name="username" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="passwd">លេខសំងាត់ (Password) <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="passwd" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="passwd" name="passwd" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="name">ឈ្មោះបុគ្កលិក (Staff Name)<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="staff-id" class="control-label-kh col-md-3 col-sm-3 col-xs-12">លេខសំគាល់ខ្លួន (Staff ID)</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="staff-id" class="form-control col-md-7 col-xs-12" type="text" name="staff-id">
+                          <input id="staff-id" name="staff-id" class="form-control col-md-7 col-xs-12" type="text" name="staff-id">
                         </div>
                       </div>
                       <div class="form-group">
@@ -63,10 +63,10 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="gender" class="btn-group" data-toggle="buttons">
                             <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="gender" value="male"> &nbsp; <label class="control-label-kh">ប្រុស (Male)</label>&nbsp;
+                              <input type="radio" id="gender" name="gender" value="male"> &nbsp; <label class="control-label-kh">ប្រុស (Male)</label>&nbsp;
                             </label>
                             <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="gender" value="female"> <label class="control-label-kh">ស្រី (Female)</label>
+                              <input type="radio" id="gender" name="gender" value="female"> <label class="control-label-kh">ស្រី (Female)</label>
                             </label>
                           </div>
                         </div>
@@ -75,15 +75,15 @@
                         <label class="control-label-kh col-md-3 col-sm-3 col-xs-12">ថ្ងៃ ខែ ឆ្នាំកំណើត (Date Of Birth) <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                          <input type="text" id="birthday" name="birthday" class="form-control" required="required" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">
                         </div>
                       </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-primary" type="button">Cancel</button>
-						  <button class="btn btn-primary" type="reset">Reset</button>
-                          <button type="submit" class="btn btn-success">Submit</button>
+						              <button class="btn btn-primary" type="reset">Reset</button>
+                          <button type="button" id="create_user" class="btn btn-success">Submit</button>
                         </div>
                       </div>
 

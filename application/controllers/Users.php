@@ -16,22 +16,20 @@ public function __construct()
 	}*/
 }	
 	
-	public function save()
+	public function create_user()
 	{
-/*		if($this->input->post('staffid') && $this->input->post('username') && $this->input->post('password'))
-		{
-				$data['staffid'] = $this->input->post('staffid');
-				$data['username'] = $this->input->post('username');
-				$data['password'] = $this->input->post('password');
-				$data['role'] = $this->input->post('role');
-				date_default_timezone_set("Pacific/Auckland");
-				$data['modidate'] = date('d-m-Y g:i a');
-				$data['isActive'] = 1; 
-				echo $this->users_model->insert($data);			
-		}*/
-
-
-	}	
+		if($this->input->post('username')&&$this->input->post('passwd')&&$this->input->post('staffid'))	
+		{	$data = array();      // array to pass back data
+			$data['username'] = $this->input->post('username');
+			$data['passwd'] = $this->input->post('passwd');
+			$data['staffid'] = $this->input->post('staffid');
+			$data['name'] = $this->input->post('name');
+			$data['gender'] = $this->input->post('gender');
+			$data['message'] = "posted successfully!";
+			
+			echo json_encode($data); //reply back to client
+		}
+	}
 	public function index()
 	{
 
@@ -78,9 +76,21 @@ public function __construct()
 		$this->load->view('html/admin/templates/top_navigation.php');
 		$this->load->view('html/admin/change_passwd');
 		$this->load->view('html/admin/templates/footer');
+				
+	}
+	
+	public function change_passwd()
+	{
+	if($this->input->post('username')&&$this->input->post('passwd')&&$this->input->post('newpasswd'))	
+	{	$data = array();      // array to pass back data
+		$data['username'] = $this->input->post('username');
+		$data['passwd'] = $this->input->post('passwd');
+		$data['newpasswd'] = $this->input->post('newpasswd');
+		$data['message'] = "posted successfully!";
 		
-		
-	}	
+		echo json_encode($data); //reply back to client
+	}
+	}
 	
 	
 }

@@ -35,29 +35,29 @@
                         <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="username">ឈ្មោះសំគាល់ (Username) <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="username" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="username" name="username" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="passwd">លេខសំងាត់ចាស់ (Old Password) <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="passwd" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="passwd" name="passwd" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="name">លេខសំងាត់ថ្មី (New Password)<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="newpasswd" name="newpasswd" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-primary" type="button">Cancel</button>
-						  <button class="btn btn-primary" type="reset">Reset</button>
-                          <button type="submit" id="change_passwd" class="btn btn-success">Submit</button>
+					            	  <button class="btn btn-primary" type="reset">Reset</button>
+                          <button type="button" id="change_passwd" class="btn btn-success">Submit</button>
                         </div>
                       </div>
 
