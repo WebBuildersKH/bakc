@@ -9,11 +9,18 @@ public function __construct()
 //	$this->load->model('users_model');
 	$this->load->helper('url'); // Load URL Helper for base_url() 
 	$this->load->helper('html'); // Load HTML Helper for img()
-	//$this->load->library("pagination");
-/*	if(!$this->session->userdata('logged_in'))
+
+	if(!$this->session->userdata('logged_in'))
 	{
 		redirect('', 'refresh');
-	}*/
+	}
+
+	$this->load->model('Authorisation_model');
+	$this->permission = $this->Authorisation_model->get_permIDs_by_user($_SESSION['logged_in']['id']);
+	
+	if(!$this->Authorisation_model->is_inspect($this->permission)){	
+		exit('Permission Denied!');
+	}
 }	
 
 	public function save()
@@ -37,14 +44,22 @@ public function __construct()
 
 		//$data['page_title'] = "Lawyers - Add New Lawyer";
 		$data['page_title'] = $this->lang->line('inspection_list');
+		$data['permission'] = $this->permission;
 		$this->load->view('html/admin/templates/header', $data);
-		$this->load->view('html/admin/templates/sidebar');
+		$this->load->view('html/admin/templates/sidebar', $data);
 		$this->load->view('html/admin/templates/menu_footer.php');
 		$this->load->view('html/admin/templates/top_navigation.php');
 		$this->load->view('html/admin/inspection_list');
 		$this->load->view('html/admin/templates/footer');
 	}
 	
-	
+	public function index1()
+	{
+
+		//$data['page_title'] = "Lawyers - Add New Lawyer";
+		$data['page_title'] = $this->lang->line('inspection_list');
+		$data['permission'] = $this->permission;
+		$this->load->view('html/admin/inspection_list',$data);
+	}	
 	
 }

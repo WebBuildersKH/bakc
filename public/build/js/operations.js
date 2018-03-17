@@ -18,7 +18,7 @@ $(document).ready(function () {
             // using the done promise callback
             .done(function(data) {
                 //console.log(data); 
-                alert(data.message + "\n" + data.username + ", " + data.passwd + ',' +data.newpasswd);
+                alert(data.message);
                 // here we will handle errors and validation messages
             });
 
@@ -30,8 +30,9 @@ $(document).ready(function () {
         var passwd = $('input[name=passwd]').val();
         var name = $('input[name=name]').val();
         var staffid = $('input[name=staff-id]').val();
-        var gender = $('input[name=gender]:checked').val();
-       
+      //  var gender = $('input[name=gender]:checked').val();
+        var dep = $('select[name=dep]').val();
+      // alert(dep);
        // var gender = $('#gender option:selected').val();
  
          $.ajax({
@@ -39,18 +40,39 @@ $(document).ready(function () {
              url         : 'http://localhost/BAKCLAW/administrator/create_user_post', // the url where we want to POST
              data        : {
                              username:username,passwd:passwd,name:name,
-                             staffid:staffid,gender:gender
+                             staffid:staffid,dep:dep
                          }, // our data object
              dataType    : 'json', // what type of data do we expect back from the server
              encode          : true
          })
              // using the done promise callback
              .done(function(data) {
-                 //console.log(data); 
-                 alert(data.message + "\n" + data.username + ", " + data.passwd + ',' +data.gender);
+                 //console.log(data);
+                 alert("hello"); 
+                 alert(data.message + "\n");
                  // here we will handle errors and validation messages
              });
  
-     }); //end change passwd
+     }); //end create user
+
+     $( "#authorise_user" ).click(function() {
+        var user = $('select[name=user]').val();
+        var perm = $('select[name=perm]').val();
+       
+         $.ajax({
+             type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+             url         : 'http://localhost/BAKCLAW/administrator/auth_user_post', // the url where we want to POST
+             data        : { user:user,perm:perm }, // our data object
+             dataType    : 'json', // what type of data do we expect back from the server
+             encode          : true
+         })
+             // using the done promise callback
+             .done(function(data) {
+                 //console.log(data);
+                 alert(data.message + "\n");
+                 // here we will handle errors and validation messages
+             });
+ 
+     }); //end create user
 
 });

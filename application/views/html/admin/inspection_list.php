@@ -27,9 +27,9 @@
                   </div>
                   <div class="x_content">
 				<div class="form-group">
-				 	 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><label class="control-label-kh">បញ្ចូលទិន្នន័យមេធាវីថ្មី</label></button>
+				 	 <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg"><label class="control-label-kh">ធ្វើសំណើរសុំប្រកបវិជ្ជាជីវៈមេធាវីថ្មី</label></button>
 					
-					 <button type="button" class="btn btn-primary"><label class="control-label-kh">Update តារាង</label></button>
+					 <button type="button" class="btn btn-success btn-sm"><label class="control-label-kh">Update តារាង</label></button>
 				</div>
 				
 				 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
@@ -42,13 +42,9 @@
                           <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                         </div>
                         <div class="modal-body">
-                          <h4>Text in a modal</h4>
-                          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                        <?php 							
+							          include("application/views/html/admin/new_inspection_popup.php");
+							          ?>
                         </div>
                       </div>
                     </div>

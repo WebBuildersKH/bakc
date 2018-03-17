@@ -1,3 +1,4 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
@@ -31,19 +32,21 @@
                   <div class="x_content">
 					  <ul>
 					  <li>
-					  <p style="font-family: Khmer OS Siemreap, Kh Battambang; font-size: 16px"><a href="">អត្តសញ្ញាណមេធាវី</a> </p>
+              <p style="font-family: Khmer OS Siemreap, Kh Battambang; font-size: 16px">
+                <a href="administrator/profiles">រចនាសម្ព័ន្ធទិន្នន័យមេធាវី </a> 
+              </p>
 					  </li>
 				      
 					  <li>
-                      <p style="font-family: Khmer OS Siemreap, Kh Battambang; font-size: 16px"><a href="">ការបំពេញលក្ខខណ្ឌប្រកបវិជ្ជាជីវៈ</a> </p>						  
+              <p style="font-family: Khmer OS Siemreap, Kh Battambang; font-size: 16px">
+                <a href="administrator/change_passwd">ប្តូរពាក្យសំងាត់</a> 
+              </p>						  
 					  </li>
 
 					  <li>
-					  <p style="font-family: Khmer OS Siemreap, Kh Battambang; font-size: 16px"><a href="">ការអប់រំបន្ត</a></p>					  
-					  </li>
-					
-					  <li>
-				      <p style="font-family: Khmer OS Siemreap, Kh Battambang;font-size: 16px"><a href="">វិធានការវិន័យ</a></p>						  
+					  <p style="font-family: Khmer OS Siemreap, Kh Battambang; font-size: 16px">
+                <a href="administrator/reports">របាយការណ៍ </a>
+            </p>					  
 					  </li>
 					  </ul>
 					  

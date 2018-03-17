@@ -18,6 +18,9 @@ $lang['users_menu_auth'] = 'ផ្តល់សិទ្ធអោយអ្នក�
 $lang['users_list'] = 'តារាងបញ្ជីឈ្មោះអ្នកប្រើប្រព័ន្ទ';
 $lang['users_auth_list'] = 'ការផ្តល់សិទ្ធអោយអ្នកប្រើ';
 
+$lang['auth_menu_add'] = 'បង្កើតសិទ្ធអោយអ្នកប្រើ';
+
+
 $lang['legalaids_menu'] = 'ជំនួយផ្នែកច្បាប់';
 	
 $lang['inspection_menu'] = 'អធិការកិច្ច';

@@ -23,6 +23,7 @@ $lang['users_menu_auth'] = 'User Authorisation';
 $lang['users_list'] = 'User List';
 $lang['users_auth_list'] = 'Managing User Authorisation';
 
+$lang['auth_menu_add'] = 'Authorise User';
 
 $lang['change_passwd'] = 'Change Password';
 $lang['log_out'] = 'Log Out';

@@ -3,23 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 
-	 */
+	private $permission = array();
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('url'); // Load URL Helper for base_url() 
+		$this->load->helper('html'); // Load HTML Helper for img()
+
+		if(!$this->session->userdata('logged_in'))
+		{
+			redirect('', 'refresh');
+		}
+		$this->load->model('Authorisation_model');
+
+		$this->permission = $this->Authorisation_model->get_permIDs_by_user($_SESSION['logged_in']['id']);
+	}	
 	
 	public function index()
 	{
@@ -41,8 +40,9 @@ class Dashboard extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('html'); 
 		$data['page_title'] = "Dashboard";
+		$data['permission'] = $this->permission;
 		$this->load->view('html/admin/templates/header', $data);
-		$this->load->view('html/admin/templates/sidebar');
+		$this->load->view('html/admin/templates/sidebar', $data);
 		$this->load->view('html/admin/templates/menu_footer.php');
 		$this->load->view('html/admin/templates/top_navigation.php');
 		$this->load->view('html/admin/index2');

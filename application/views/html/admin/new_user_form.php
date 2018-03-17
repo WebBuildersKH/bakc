@@ -46,18 +46,19 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="name">ឈ្មោះបុគ្កលិក (Staff Name)<span class="required">*</span>
+                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12" for="name">ឈ្មោះបុគ្កលិក (Staff Name)
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="name" name="name" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="staff-id" class="control-label-kh col-md-3 col-sm-3 col-xs-12">លេខសំគាល់ខ្លួន (Staff ID)</label>
+                        <label for="staff-id" class="control-label-kh col-md-3 col-sm-3 col-xs-12">លេខសំគាល់ខ្លួន (Staff ID) *</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="staff-id" name="staff-id" class="form-control col-md-7 col-xs-12" type="text" name="staff-id">
+                          <input id="staff-id" name="staff-id" required="required" class="form-control col-md-7 col-xs-12" type="text" name="staff-id">
                         </div>
                       </div>
+                    <!--
                       <div class="form-group">
                         <label class="control-label-kh col-md-3 col-sm-3 col-xs-12">ភេទ (Gender)</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -71,11 +72,28 @@
                           </div>
                         </div>
                       </div>
+                      -->
                       <div class="form-group">
-                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12">ថ្ងៃ ខែ ឆ្នាំកំណើត (Date Of Birth) <span class="required">*</span>
+                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12">ថ្ងៃ ខែ ឆ្នាំកំណើត (Date Of Birth)
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="birthday" name="birthday" class="form-control" required="required" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">
+                          <input type="text" id="birthday" name="birthday" class="form-control" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label-kh col-md-3 col-sm-3 col-xs-12">Department<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" name="dep">
+                          <?php
+                            foreach($dep_list as $dep)
+                            {
+
+                              echo "<option value='".$dep->DEP_ID."'>".$dep->DEP_NAME."</option>";
+
+                            }
+                          ?>
+                          </select>
                         </div>
                       </div>
                       <div class="ln_solid"></div>

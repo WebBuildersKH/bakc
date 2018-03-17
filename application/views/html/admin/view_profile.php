@@ -28,7 +28,7 @@
                   <div class="x_content">
 				<div class="form-group">
 					 <a class="btn btn-success btn-sm" ><label class="control-label-kh">ព្រីនឯកសារនេះ</label></a>
-					 <a class="btn btn-success btn-sm" href="profiles"><label class="control-label-kh">ត្រឡប់ទៅតារាងបញ្ជីឈ្មោះមេធាវីវិញ</label></a>
+					 <a class="btn btn-success btn-sm" href="<?php echo base_url();?>administrator/profiles"><label class="control-label-kh">ត្រឡប់ទៅតារាងបញ្ជីឈ្មោះមេធាវីវិញ</label></a>
 				</div>
 	<hr />			
 	<div class="" role="tabpanel" data-example-id="togglable-tabs">
@@ -58,135 +58,219 @@
 							<div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
 								<br />
 								<div class="form-group">
-									<label class="control-label-kh">ឈ្មោះ (ជាខ្មែរ):	<?php echo "ឈ្មោះ កខដស"; ?></label>
-									
+									<label class="control-label-kh">ឈ្មោះ (ជាខ្មែរ):	
+									<?php echo $lawyer[0]->lawyer_name_kh; ?></label>								
 								</div>
 								<div class="form-group">
-									<label class="control-label-kh">ជាឡាតាំង​: <?php echo "Ponleu Koy"; ?></label>
+									<label class="control-label-kh">ជាឡាតាំង​: <?php echo $lawyer[0]->lawyer_name_en; ?></label>
 								</div>
 								<div class="form-group">
-									<label class="control-label-kh">ថ្ងៃ ខែ ឆ្នាំកំណើត: <?php echo "12/12/1989"; ?></label>
+									<label class="control-label-kh">ថ្ងៃ ខែ ឆ្នាំកំណើត: <?php echo $lawyer[0]->lawyer_dob; ?></label>
 								</div>
 								<div class="form-group">
-									<label class="control-label-kh">អត្តលេខ: <?php echo "BDDHFJ122"; ?></label>
-								
+									<label class="control-label-kh">អត្តលេខ: <?php echo $lawyer[0]->lawyer_code; ?></label>								
 								</div>
 							</div>
+
 							<div id="tab_content2" role="tabpanel" class="tab-pane fade" aria-labelledby="profile-tab">
 								<br />
+								<?php
+								foreach($conditions as $condition){
+								
+								?>
 								<div class="form-group">
 									<label class="control-label-kh"><b>២.១ វិញ្ញាបនប័ត្រសម្បទាវិជ្ជាជីវៈមេធាវី</b></label>
 								</div>
+								<?php
+								if($condition->date_of_completion){
+								?>
 								<div class="form-group">
-								  <label class="control-label-kh">២.១.១ បញ្ចប់នៅ: 12/12/2016 &nbsp;&nbsp;</label>
-							 	</div>							
-								<div class="form-group">
-									<label class="control-label-kh">២.១.២	ចប់កម្មសិក្សានៅ: 05/05/2015 &nbsp;&nbsp;</label> 
+								  <label class="control-label-kh">បញ្ចប់នៅ:&emsp;<?php echo $condition->date_of_completion; ?></label>
 								</div>
-								<hr />																
+								<?php
+								}
+								?>
+
+								<?php
+								if($condition->date_of_prob){
+								?>							
 								<div class="form-group">
-										<label class="control-label-kh">២.១.៣	កម្មសិក្សាត្រូវបន្ត&nbsp;&nbsp;</label> 
-									  <input type="checkbox" name="pursue_study" checked="checked" disabled="disabled" class="flat">
-								</div>				
-								<div class="form-group">
-								  <label class="control-label-kh">២.១.៤	ក្រុមប្រឹក្សាអនុម័តឲ្យប្រកបពេញសិទ្ធិ &nbsp;&nbsp;</label>
-									  
-								 <label class="control-label-kh">សេចក្តីសម្រេច: 11/11/2016 (ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</label>
-									  								   
+									<label class="control-label-kh">ចប់កម្មសិក្សានៅ:&emsp;<?php echo $condition->date_of_prob; ?></label> 
 								</div>
+								<?php
+								}
+								?>		
+
+								<?php
+									if($condition->is_pursue_study){
+								?>
+								<div class="form-group">
+										<label class="control-label-kh">កម្មសិក្សាត្រូវបន្ត</label> 
+								</div>
+								<?php
+									}
+								?>			
+								<?php
+								if($condition->date_of_fulltime){
+								?>				
+								<div class="form-group">
+								  <label class="control-label-kh">ក្រុមប្រឹក្សាអនុម័តឲ្យប្រកបពេញសិទ្ធិ</label>									  
+								  <label class="control-label-kh">សេចក្តីសម្រេច:&emsp;<?php echo $condition->date_of_fulltime; ?> (ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</label>									   
+								</div>
+								<?php
+									}
+								?>
 								<hr />
 								<div class="form-group">
 									<label class="control-label-kh"><b>២.២	លក្ខខណ្ឌប្រកបតាមមាត្រា ៣២</b></label>
 								</div>
+								<?php
+								if($condition->date_of_righteousness){
+								?>	
 								<div class="form-group">
-									<label class="control-label-kh">២.២.១ ត្រូវបំពេញសុក្រិត្យការ ចាប់ផ្តើមពី 11/12/2016&nbsp;&nbsp;</label>
-								</div>								
+									<label class="control-label-kh">ត្រូវបំពេញសុក្រិត្យការ ចាប់ផ្តើមពី:&emsp;<?php echo $condition->date_of_righteousness; ?></label>
+								</div>
+								<?php
+									}
+								if($condition->date_of_without_righteousness){
+								?>	
 								<div class="form-group">
-									<label class="control-label-kh">២.២.២	លើកលែងបំពេញសុក្រិត្យការ &nbsp;&nbsp;</label>
-									<label class="control-label-kh">សេចក្តីសម្រេច 23/12/2018&nbsp;&nbsp;លេខ .... (ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</label>
-								</div>								
+									<label class="control-label-kh">លើកលែងបំពេញសុក្រិត្យការ</label>
+									<label class="control-label-kh">សេចក្តីសម្រេច:&emsp;<?php echo $condition->date_of_without_righteousness; ?> (ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</label>
+								</div>
+								<?php
+									}
+								if($condition->date_of_prob_righteousness){
+								?>									
 								<div class="form-group">
-									<label class="control-label-kh">២.២.៣	កម្មសិក្សា&nbsp;&nbsp;</label>
-									<label class="control-label-kh">ថ្ងៃ ខែ ឆ្នាំ&nbsp;&nbsp;12/12/2012</label>
-								</div>								
-								<div class="form-group">
-									  <label class="control-label-kh">២.២.៥	មិនបាច់ធ្វើកម្មសិក្សា&nbsp;&nbsp;</label>
-									  <label class="control-label-kh">សេចក្តីសម្រេចលេខ: 11/11/2012&nbsp;&nbsp;(ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</label>
+									<label class="control-label-kh">កម្មសិក្សា</label>
+									<label class="control-label-kh">ថ្ងៃ ខែ ឆ្នាំ:&emsp;<?php echo $condition->date_of_prob_righteousness; ?></label>
 								</div>	
+								<?php
+									}
+								if($condition->no_prob_righteousness){
+								?>							
 								<div class="form-group">
-								  	<label class="control-label-kh">២.២.៦	ក្រុមប្រឹក្សាអនុម័តឲ្យប្រកបពេញសិទ្ធិ  &nbsp;&nbsp;</label>
-									  <label class="control-label-kh">&nbsp;&nbsp;សេចក្តីសម្រេច លេខ 11/12/2013&nbsp;&nbsp;(ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</label>
-								</div>							
+									  <label class="control-label-kh">២.២.៥	មិនបាច់ធ្វើកម្មសិក្សា</label>
+									  <label class="control-label-kh">សេចក្តីសម្រេចលេខ:&emsp;<?php echo $condition->no_prob_righteousness; ?> (ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</label>
+								</div>	
+								<?php
+									}
+								if($condition->fulltime_approval){
+								?>
+								<div class="form-group">
+								  	<label class="control-label-kh">ក្រុមប្រឹក្សាអនុម័តឲ្យប្រកបពេញសិទ្ធិ</label>
+									  <label class="control-label-kh">សេចក្តីសម្រេច លេខ:&emsp;<?php echo $condition->fulltime_approval; ?> (ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</label>
+								</div>
+								<?php
+								}
+								?>							
 								<hr />
 								<div class="form-group">
 									<label class="control-label-kh"><b>២.៣	ការប្រកបវិជ្ជាជីវៈ</b></label>
 								</div>								
 								<div class="form-group">
-								  <label class="control-label-kh">២.៣.១	ការិយាល័យឈ្មោះ &nbsp;&nbsp;ABC Law Firm</label>
-									<label class="control-label-kh">&nbsp;&nbsp;លិខិតអនុញ្ញាតលេខ &nbsp;&nbsp;123466</label>
+								<?php
+								if($condition->firm_name){
+								?>
+								  <label class="control-label-kh">ការិយាល័យឈ្មោះ:&emsp;<?php echo $condition->firm_name; ?></label>
+								<?php
+								}
+								if($condition->authorisation_number){
+								?>
+									<label class="control-label-kh">លិខិតអនុញ្ញាតលេខ:&emsp;<?php echo $condition->authorisation_number; ?></label>
+								<?php
+								}
+								?>
 								</div>									
 								<div class="form-group">
-								  <label class="control-label-kh">២.៣.២	លិខិតអនុញ្ញាតឲ្យប្រកបលេខ&nbsp;&nbsp;5555</label>
-					   			<label class="control-label-kh">&nbsp;&nbsp;អស់សុពលភាពត្រឹមថ្ងៃ ខែ ឆ្នាំ&nbsp;&nbsp;12/12/2020</label> 
+								<?php
+								if($condition->permission_number){
+								?>
+								  <label class="control-label-kh">លិខិតអនុញ្ញាតឲ្យប្រកបលេខ:&emsp;<?php echo $condition->permission_number; ?></label>
+								<?php
+								}
+								if($condition->firm_validity){
+								?>
+								 	<label class="control-label-kh">អស់សុពលភាពត្រឹមថ្ងៃ ខែ ឆ្នាំ:&emsp;<?php echo $condition->firm_validity; ?></label> 
+								<?php
+								}
+								?>
 								</div>				
 								<hr />
 								<div class="form-group">
 									<label class="control-label-kh"><b>២.៤	ការនៅក្រៅបញ្ជីគណៈមេធាវី</b></label>
-								</div>								
-								<div class="form-group">
-								  <label class="control-label-kh">២.៤.១	តាមសេចក្តីស្នើសុំ &nbsp;&nbsp;</label>
-									<label class="control-label-kh">&nbsp;&nbsp;អស់សុពលភាពត្រឹមថ្ងៃ ខែ ឆ្នាំ&nbsp;&nbsp;12/12/2017</label> 
-								</div>									
-								<div class="form-group">
-								  <label class="control-label-kh">២.៤.២	តាមសេចក្តីសម្រេចដាក់ឲ្យនៅក្រៅបញ្ជី &nbsp;&nbsp;</label>
-									<label class="control-label-kh">&nbsp;&nbsp;សេចក្តីសម្រេច លេខឆ្នាំ&nbsp;&nbsp;12/11/2018  (ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</label>
 								</div>
+								<?php
+								if($condition->out_bar_validity){
+								?>								
+								<div class="form-group">
+								  <label class="control-label-kh">តាមសេចក្តីស្នើសុំ </label>
+									<label class="control-label-kh">អស់សុពលភាពត្រឹមថ្ងៃ ខែ ឆ្នាំ:&emsp;<?php echo $condition->out_bar_validity; ?></label> 
+								</div>
+								<?php
+								}
+								if($condition->out_bar_decision){
+								?>
+								<div class="form-group">
+								  <label class="control-label-kh">តាមសេចក្តីសម្រេចដាក់ឲ្យនៅក្រៅបញ្ជី</label>
+									<label class="control-label-kh">សេចក្តីសម្រេច លេខឆ្នាំ:&emsp;<?php echo $condition->out_bar_decision; ?>  (ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</label>
+								</div>
+								<?php
+								}
+								?>
 								<hr />									
 								<div class="form-group">
 									<label class="control-label-kh"><b>២.៥ ការហាមឃាត់មិនឲ្យប្រកប</b></label>
-								</div>														
+								</div>
+								<?php
+								if($condition->prohibition_statement){
+								?>														
 								<div class="form-group">
-								  <label class="control-label-kh">២.៥.១	សេចក្តីសម្រេច&nbsp;&nbsp;</label>
-								</div>	
+								  <label class="control-label-kh">សេចក្តីសម្រេច:&emsp;<?php echo $condition->prohibition_statement; ?></label>
+								</div>
+								<?php
+								}
+
+								}
+								?>	
 							</div>
 							<div id="tab_content3" role="tabpanel" class="tab-pane fade" aria-labelledby="profile-tab">
-							  <div class="form-group after-add-edu-more">	
+							  <br />
 								<div class="form-group">
-									<label class="control-label-kh">៣.១ លើកទី ១&nbsp;&nbsp;</label>
-									<label class="control-label-kh">ចំនួនម៉ោងសិក្សា៖&nbsp;&nbsp;12</label>
+								<?php
+									$i=1;
+									$total_hour =0;
+									foreach($education as $edu){
+										echo "<p><label class='control-label-kh'><b>លើកទី ".$i."&emsp;</b></label></p>";
+										echo "<p><label class='control-label-kh'>ចំនួនម៉ោងសិក្សា:&emsp;";
+										echo	$edu->number_of_hours." ម៉ោង"."</label></p><hr />";
+										$total_hour = $total_hour + $edu->number_of_hours;
+										$i++;
+									}
+										echo "<p><label class='control-label-kh'>សរុបម៉ោងអប់រំបន្តមកទល់បច្ចុប្បន្ន:&emsp;";
+										echo $total_hour." ម៉ោង</label></p>";
+								?>
 								</div>
-							  </div>	   
-		   
-								<div class="form-group">
-									<label class="control-label-kh">៣.២ សរុបម៉ោងអប់រំបន្តមកទល់បច្ចុប្បន្ន&nbsp;&nbsp;12</label>
-								</div>	
-  
 							</div> <!-- End Tab3-->
 							<div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
-								<div class="form-group after-add-more">
-									<label class="control-label-kh">៤.១ បណ្តឹង&nbsp;&nbsp;</label>
-									<label class="control-label-kh">បរិយាយសង្ខេប: abandhdlsdfklsdfpofp&nbsp;&nbsp;</label>
-									<br />
-									<label class="control-label-kh">ចប់ដោយការផ្សះផ្សារបស់ប្រធាន&nbsp;&nbsp;</label>
-									<input type="checkbox" name="end_compliant_by_president" checked="checked" class="flat">&nbsp;&nbsp;
-									<br />
-									<label class="control-label-kh">ត្រូវធ្វើអធិការកិច្ច&nbsp;&nbsp;</label>
-									<input type="checkbox" name="to_be_inspected" checked="checked" class="flat">&nbsp;&nbsp;
-									<br />
-									<label class="control-label-kh">របាយការណ៍អធិការកិច្ច&nbsp;&nbsp;</label>
-									<input type="button" value="Download របាយការណ៍">&nbsp;&nbsp;
-									<br />
-									<label class="control-label-kh">សេចក្តីសម្រេចក្រុមប្រឹក្សា៖ ស្តីបន្ទោសផ្ទាល់មាត់</label>
-									<input type="checkbox" checked="checked" name="end_by_oral_warning" class="flat">
-									<label class="control-label-kh">ស្តីបន្ទោសជាលាយលក្ខណ៍អក្សរ&nbsp;&nbsp;</label>
-									<input type="checkbox" name="end_by_written_warning" class="flat">&nbsp;&nbsp;
-									<label class="control-label-kh">លុបឈ្មោះចេញពីបញ្ជី&nbsp;&nbsp;</label>
-									<input type="checkbox" name="end_by_termination" class="flat">
+								<br >
+								<div class="form-group">
+								<?php
+									$i=1;
+									foreach($discipline as $d){
+										echo "<p><label class='control-label-kh'>បណ្តឹងទី ".$i."&emsp;</label></p>";	
+										echo "<p><label class='control-label-kh'><i>បរិយាយសង្ខេប</i></label></p>";
+										echo "<p>".$d->complaints_desc."</p>";
+										echo "<p><label class='control-label-kh'>ចប់ដោយការផ្សះផ្សារបស់ប្រធាន:&emsp;".$d->is_presidential_reconciliation."</label></p>";
+										echo "<p><label class='control-label-kh'>ត្រូវធ្វើអធិការកិច្ច:&emsp;".$d->is_inspection."</label></p>";
+										echo "<p><label class='control-label-kh'>សេចក្តីសម្រេចក្រុមប្រឹក្សា:&emsp;".$d->cd_id."</label></p>";
+										$i++;	
+									}
+
+
+								?>
 								</div>
-							<!-- This is where the form elements are dynamically generated-->
-											
-							<!-- -->
-									
 							</div> <!-- end content tab4-->
 						   </div>
 			</div>			  

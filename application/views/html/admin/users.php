@@ -26,81 +26,61 @@
                   </div>
                   <div class="x_content">
                   <div class="form-group">
-                       <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">
+                       <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".bs-example-modal">
                        <label class="control-label-kh">បង្កើតអ្នកប្រើថ្មី</label></button>                
-                       <button type="button" class="btn btn-success btn-sm"><label class="control-label-kh">Update តារាង</label></button>	
+                       <button type="button" onclick="location.reload();" class="btn btn-success btn-sm"><label class="control-label-kh">Update តារាង</label></button>	
                   </div>
+<!-- Modal -->
+				 <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                    </button>
+                    <h4><?php echo $this->lang->line('users_menu_add'); ?></h4>
+                  </div>
+                  <div class="modal-body">
+                        <?php 							
+							            include("application/views/html/admin/modal_pages/new_user_form_modal.php");
+						          	?>
+                  </div>
+                </div>
+            </div>
+         </div>
+<!-- End Modal -->
+                  <div class="form-group"> 
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>      
-                          <th>No</th>
-						  <th>Login Usersname</th>
-                          <th>Name</th>
-						  <th>Staff Id</th>
-						  <th>Creating Date</th>
-						  <th>Modifying Date</th>
-						  <th>isActive</th>
-						  <th>Edit</th>	
+                          <th class = "control-label-kh"><b>ល.រ</b></th>
+						              <th class = "control-label-kh"><b>ឈ្មោះសំគាល់</b></th>
+                          <th class = "control-label-kh"><b>ឈ្មោះបុគ្កលិក</b></th>
+						              <th class = "control-label-kh"><b>លេខសំគាល់ខ្លួន</b></th>
+						              <th class = "control-label-kh"><b>ថ្ងៃបង្កើត</b></th>
+						              <th class = "control-label-kh"><b>isActive</b></th>
+						              <th class = "control-label-kh"><b>កែប្រែ</b></th>	
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>1</td>
-						  <td>ponleu</td>
-                          <td>Ponleu Koy</td>
-                          <td>S2002</td>
-                          <td>2011/04/25</td>
-                          <td>2011/04/25</td>
-						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-						  <td>yanno</td>
-                          <td>Ponleu Koy</td>
-                          <td>S2003</td>
-                          <td>2011/04/25</td>
-                          <td>2011/04/25</td>
-						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                          </td>
-                        </tr>                       
-                        <tr>
-                          <td>3</td>
-						  <td>dara</td>
-                          <td>Dara Sok</td>
-                          <td>S2004</td>
-                          <td>2011/04/25</td>
-                          <td>2011/04/25</td>
-						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-						  <td>khim</td>
-                          <td>Khim Sok</td>
-                          <td>S2005</td>
-                          <td>2011/04/25</td>
-                          <td>2011/04/25</td>
-						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                          </td>
-                        </tr>   
-                        <tr>
-                          <td>5</td>
-						  <td>seng</td>
-                          <td>Seng Khim</td>
-                          <td>S2035</td>
-                          <td>2011/04/25</td>
-                          <td>2011/04/25</td>
-						  <td>Close</td>
-						  <td><a class="btn btn-app1"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                          </td>
-                        </tr>   						  
+                      <?php
+                      $i = 0;
+                      foreach($user_list as $user)
+                      {
+                        
+                        echo "<tr><td>".++$i."</td><td>";
+                        echo $user->USER_NAME."</td><td>";
+                        echo $user->USER_FULLNAME."</td><td>";
+                        echo $user->USER_STAFFID."</td><td>";
+                        echo $user->MODIDATE."</td><td>"; 
+                        echo "Active</td><td>";   
+                        echo "<a class='btn btn-app1' href='edit_user/".$user->USER_ID."'>";
+                        echo "<i class='glyphicon glyphicon-edit'></i><label>កែប្រែ</label></a></td></tr>";
+                      
+                      }
+                      ?> 						  
                       </tbody>
                     </table>
+                  </div>
                   </div>
                 </div>
               </div>

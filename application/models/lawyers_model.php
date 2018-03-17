@@ -14,12 +14,12 @@ class Lawyers_model extends CI_Model {
     }
 	
 	
-	public function get_lawyer_by_id($id)
+	public function get_data_by_id($id)
 	{
 		 $query = $this->db->query("SELECT * FROM lawyers WHERE id=".$id);
 		 if ($query->num_rows() > 0)
 		 {
-			 return $query->result_array();
+			 return $query->result();
 		 }
 	
 	}
@@ -47,22 +47,34 @@ class Lawyers_model extends CI_Model {
 	
 	}
 	
+	public function get_lawyer_code($id)
+	{
+		$query = $this->db->query("SELECT lawyer_code FROM lawyers WHERE id=".$id);
+		if ($query->num_rows() > 0)
+		{
+			return $query->result();
+		}
+	}
 	public function insert($lawyer)
 	{
 		$data = array(
-		   'lawyer_id ' => $lawyer['lawyer_id'] ,
-		   'lawyer_name' => $lawyer['lawyer_name'] ,
-		   'lawyer_gender' => $lawyer['lawyer_gender'] ,
-		   'lawyer_start_date ' => $lawyer['lawyer_start_date'] ,
-		   'modidate' => $lawyer['modidate'] ,
-		   'isActive' => $lawyer['isActive']
-		   
+		   'lawyer_code ' => $lawyer['lawyer_code'] ,
+		   'lawyer_name_en' => $lawyer['lawyer_name_en'] ,
+		   'lawyer_name_kh' => $lawyer['lawyer_name_kh'] ,
+		   'lawyer_dob' => $lawyer['lawyer_dob'] ,
+		   'modidate  ' => $lawyer['modidate'] 
 		);
 		
-		$this->db->insert('lawyers', $data);
-	//	var_dump( $this->db ); 
-	//	return $this->db->queries[0];
-		return 'true';
+		if(!$this->db->insert('lawyers', $data))
+		{
+			$error["message"] = "Error while inserting data";
+			$error["return_id"] = "error";
+			error_log(json_encode($error)."\r\n", 3, "trace.log");	
+		return $error;
+		}
+		$success["message"] = "success";	
+		$success["return_id"] = $this->db->insert_id();
+		return $success; 	
 	}
 	
 	public function remove($id)

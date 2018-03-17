@@ -9,6 +9,12 @@ class Logging extends CI_Controller {
         }
 
 
+public function record_last_login(){
+
+        
+}
+
+
 public function write(){
 	
 	

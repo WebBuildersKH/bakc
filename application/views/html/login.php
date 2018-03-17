@@ -8,12 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Administrator</title>
-  
     <link href="public/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-   
-    <link href="public/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-
     <!-- Custom Theme Style -->
     <link href="public/build/css/sb-admin.css" rel="stylesheet">
   </head>
@@ -24,21 +19,23 @@
         <div class="card card-container">
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
            <div style="text-align: center"> <img src="public/build/images/logo.png" /></div>
-            <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            
+            <span style="color: crimson; text-align: center"><?php echo validation_errors(); ?></span>
+            <form class="form-signin" method="POST" action="http://localhost/BAKCLAW/verifylogin" accept-charset="utf-8">
+                <input type="text" name="username" class="form-control" placeholder="username" required autofocus>
+                <input type="password" name="passwd" class="form-control" placeholder="Password" required>
                 <div id="remember" class="checkbox">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
+                      
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
             </form><!-- /form -->
-            <a href="#" class="forgot-password">
+     <!--        <a href="#" class="forgot-password">
                 Forgot the password?
-            </a>
+            </a> -->
+            <center><p>Contact Administrator if you forgot the password</p></center>
         </div><!-- /card-container -->
     </div><!-- /container -->	
 	
