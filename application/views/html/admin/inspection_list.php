@@ -64,7 +64,8 @@
             <tbody>
             <?php
             $i = 1;
-            foreach($candidates as $candidate){
+            if($candidates){
+              foreach($candidates as $candidate){
                 echo "<tr><td>".$i."</td><td>";
                 echo "<label class='control-label-kh'>".$candidate->candidate_name_kh."</label></td>";
                 echo "<td><label class='control-label-kh'>".$candidate->candidate_name_en."</label></td>";
@@ -75,7 +76,7 @@
                 echo "<td><a class='btn btn-app1 edit-candidate' data-toggle='modal' data-id='".$candidate->id."'><i class='glyphicon glyphicon-edit'></i>";
                 echo "<label>កែប្រែ</label></a></td></tr>";
                 $i++;
-
+              }    
             }
 
 

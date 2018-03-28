@@ -84,7 +84,7 @@ $('#insert_inspection').click (function () {
     formData.append('phd_file', $('#phd_file')[0].files[0]);
 
     formData.append('institution', $('input[name=institution]').val());
-    formData.append('exp_detail', $('input[name=exp_detail]').val());
+    formData.append('exp_detail', $('#exp_detail').val());
     
     formData.append('applying_date', $('input[name=applying_date]').val());
     formData.append('is_inspection_assigned', $("input[name='is_inspection_assigned']:checked").val());

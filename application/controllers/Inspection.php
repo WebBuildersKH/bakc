@@ -62,7 +62,7 @@ public function __construct()
 				$ba["attachment_path"] = isset($_FILES['ba_file'])?$_FILES['ba_file']['name']:"";
 
 				if($ba["attachment_path"]){
-					$ba["attachment_path"]  = $this->upload_file("ba_file",$_FILES['ba_file']['name']);
+					$ba["attachment_path"]  = $this->upload_file("ba_file","ba_file_candidate_".$ba["candidate_id"]);
 				}
 				$this->Candidate_degree_records_model->insert($ba);
 			}
@@ -76,7 +76,7 @@ public function __construct()
 				$ma["attachment_path"] = isset($_FILES['ma_file'])?$_FILES['ma_file']['name']:"";
 
 				if($ma["attachment_path"]){
-					$ma["attachment_path"]  = $this->upload_file("ma_file",$_FILES['ma_file']['name']);
+					$ma["attachment_path"]  = $this->upload_file("ma_file","ma_file_candidate_".$ma["candidate_id"]);
 				}
 				$this->Candidate_degree_records_model->insert($ma);
 			}
@@ -90,7 +90,7 @@ public function __construct()
 				$phd["attachment_path"] = isset($_FILES['phd_file'])?$_FILES['phd_file']['name']:"";
 
 				if($phd["attachment_path"]){
-					$phd["attachment_path"]  = $this->upload_file("phd_file",$_FILES['phd_file']['name']);
+					$phd["attachment_path"]  = $this->upload_file("phd_file","phd_file_candidate_".$phd["candidate_id"]);
 				}
 				$this->Candidate_degree_records_model->insert($phd);
 
@@ -108,7 +108,7 @@ public function __construct()
 			}
 
 			if($this->input->post("applying_date")){
-				$this->load->model('candidate_progress');
+				$this->load->model('Candidate_progress_model');
 				$progress = array();
 				$progress['candidate_id'] = $return_id;
 				$progress['applying_date'] = $this->input->post("applying_date");
@@ -120,16 +120,32 @@ public function __construct()
 				$progress['inspection_decision_no'] = $this->input->post("inspection_decision_no");
 				$progress['date_of_inspection_decision'] = $this->input->post("date_of_inspection_decision");
 				//put report file here
+				$progress["inspection_report_file"] = isset($_FILES['inspection_report_file'])?$_FILES['inspection_report_file']['name']:"";				
 				$progress['inspection_report_des'] = $this->input->post("inspection_report_des");
 				$progress['date_of_interview'] = $this->input->post("date_of_interview");
+				$progress['interview_file'] = isset($_FILES['interview_file'])?$_FILES['interview_file']['name']:"";
 				$progress['interview_report_des'] = $this->input->post("interview_report_des");
-				$progress['composition_name3'] = $this->input->post("composition_name3");
+				$progress['date_of_board_meeting'] = $this->input->post("date_of_board_meeting");
+				$progress['meeting_outcome_approval'] = $this->input->post("meeting_outcome_approval");
+				$progress['meeting_approval_no'] = $this->input->post("meeting_approval_no");
+				$progress['date_of_meeting_approval'] = $this->input->post("date_of_meeting_approval");
+				$progress['modidate'] = date('d-m-Y g:i a');
+
+				if($progress["inspection_report_file"]){
+					$progress["inspection_report_file"]  = $this->upload_file("inspection_report_file","inspection_report_candidate_".$progress['candidate_id']);
+				}
+				if($progress["interview_file"]){
+					$progress["interview_file"]  = $this->upload_file("interview_file","interview_file_candidate_".$progress['candidate_id']);
+				}
+				error_log(date('d-m-Y g:i a')." ".$progress."\r\n", 3, "candidate.log");	
+				$result4 = $this->Candidate_progress_model->insert($progress);	
 			}
 		}
 
 
 		$result['candidate'] = $result1; 
 		$result['experience'] = $result3; 
+		$result['progress'] = $result4; 
 		
 		echo json_encode($result);
 	}	
@@ -150,7 +166,7 @@ public function __construct()
 						if($size<(1024*1024)) 
 						{						
 							//$image_name = time().'_'.$user_id.".".$ext;
-							$image_name = $newname.'_'.$user_id.".".$ext;
+							$image_name = $newname.".".$ext;
 							$tmp = $_FILES[$filename]['tmp_name'];
 							if(move_uploaded_file($tmp, $path.$image_name)){
 								return $path.$image_name;
