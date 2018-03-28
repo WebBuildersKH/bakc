@@ -10,7 +10,8 @@ class Continuing_education_model extends CI_Model {
 	public function insert($edu)
 	{
 		$data = array(
-           'lawyer_id' => $edu['lawyer_id'] ,
+		   'lawyer_id' => $edu['lawyer_id'] ,
+		   'subject' => $edu['subject'] ,
            'number_of_hours' => $edu['number_of_hours'] ,
            'date_of_study' => $edu['date_of_study'] ,
            'modidate' => $edu['modidate']	   

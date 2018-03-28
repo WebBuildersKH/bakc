@@ -1,6 +1,6 @@
 <?php
 
-class Lawyers_model extends CI_Model {
+class Candidates_model extends CI_Model {
 
 	public function __construct()
 	{
@@ -10,23 +10,23 @@ class Lawyers_model extends CI_Model {
 	
 	public function record_count() {
 	
-        return $this->db->count_all("lawyers");
+        return $this->db->count_all("candidates");
     }
 	
 	
-	public function get_data_by_id($id)
+	public function get_candidate_by_id($id)
 	{
-		 $query = $this->db->query("SELECT * FROM lawyers WHERE id=".$id);
+		 $query = $this->db->query("SELECT * FROM candidates WHERE id=".$id);
 		 if ($query->num_rows() > 0)
 		 {
-			 return $query->result();
+			 return $query->result_array();
 		 }
 	
 	}
 	
 	public function fetch_data($limit, $start) {
         $this->db->limit($limit, $start);
-        $query = $this->db->get("lawyers");
+        $query = $this->db->get("candidates");
  
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
@@ -39,18 +39,7 @@ class Lawyers_model extends CI_Model {
 
 	public function get_data()
 	{
-		 $query = $this->db->query("SELECT * FROM lawyers");
-		 if ($query->num_rows() > 0)
-		 {
-			 return $query->result();
-		 }
-	
-	}
-
-	public function search($keyword)
-	{
-	
-		 $query = $this->db->query("SELECT lawyer_name_kh FROM lawyers WHERE lawyer_code LIKE '%".$keyword."%'");
+		 $query = $this->db->query("SELECT * FROM candidates");
 		 if ($query->num_rows() > 0)
 		 {
 			 return $query->result();
@@ -58,25 +47,11 @@ class Lawyers_model extends CI_Model {
 	
 	}
 	
-	public function get_lawyer_code($id)
+	public function insert($data)
 	{
-		$query = $this->db->query("SELECT lawyer_code FROM lawyers WHERE id=".$id);
-		if ($query->num_rows() > 0)
-		{
-			return $query->result();
-		}
-	}
-	public function insert($lawyer)
-	{
-		$data = array(
-		   'lawyer_code ' => $lawyer['lawyer_code'] ,
-		   'lawyer_name_en' => $lawyer['lawyer_name_en'] ,
-		   'lawyer_name_kh' => $lawyer['lawyer_name_kh'] ,
-		   'lawyer_dob' => $lawyer['lawyer_dob'] ,
-		   'modidate  ' => $lawyer['modidate'] 
-		);
-		
-		if(!$this->db->insert('lawyers', $data))
+	//	var_dump( $this->db ); 
+	//	return $this->db->queries[0];
+		if(!$this->db->insert('candidates', $data))
 		{
 			$error["message"] = "Error while inserting data";
 			$error["return_id"] = "error";
@@ -85,20 +60,20 @@ class Lawyers_model extends CI_Model {
 		}
 		$success["message"] = "success";	
 		$success["return_id"] = $this->db->insert_id();
-		return $success; 	
+		return $success; 
 	}
 	
 	public function remove($id)
 	{
 		$this->db->where('id', $id);
-		$this->db->delete('lawyers'); 
+		$this->db->delete('candidates'); 
 		return 'true';
 	}
 	
 	public function update($id,$data)
 	{
 		$this->db->where('id', $id);
-		$this->db->update('lawyers', $data);	
+		$this->db->update('candidates', $data);	
 		return $this->db->queries[0];	
 	}
 		
@@ -111,11 +86,7 @@ class Lawyers_model extends CI_Model {
 		 }
 	
 	}
-	
-	
-
-	
-	
+		
 	
 }
 

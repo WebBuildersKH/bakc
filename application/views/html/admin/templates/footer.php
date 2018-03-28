@@ -39,6 +39,8 @@
     <script src="<?php echo base_url();?>public/vendors/pdfmake/build/vfs_fonts.js"></script>
 	  <script src="<?php echo base_url();?>public/build/js/formwizard.js"></script>
     <script src="<?php echo base_url();?>public/build/js/operations.js"></script>
+    <script src="<?php echo base_url();?>public/build/js/inspection.js"></script>
+    
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url();?>public/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
     <script src="<?php echo base_url();?>public/build/js/custom.min.js"></script>

@@ -21,7 +21,8 @@
 			</span></a>
         </li>
     </ul>
-	<form name="form" id="form">	
+	
+	<form name="form1" id="form1">	
     <div id="myTabContent" class="tab-content">  
         <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
 			<br />
@@ -47,15 +48,19 @@
 			<div class="form-group">
 				<label class="control-label-kh"><b>២.១ វិញ្ញាបនប័ត្រសម្បទាវិជ្ជាជីវៈមេធាវី</b></label>
 			</div>
-			<div class="form-group">
-			  <table>
-			   <tr>
-				  <td><label class="control-label-kh">២.១.១ បញ្ចប់ &nbsp;&nbsp;</label>    </td>
-				  <td><input type="checkbox" name="end_cert" id="end_cert">&nbsp;&nbsp;</td>
-				  <td><label class="control-label-kh">ថ្ងៃទី ខែ ឆ្នាំ&nbsp;&nbsp;</label>    </td>
-				  <td><input type="text" class="form-control" name="date_of_completion" id="date_of_completion" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;&nbsp;</td>
-			   </tr>	
-			  </table>
+			<div class="form-group row">
+				<div class="col-xs-10">
+					<table>
+						<tr>
+							 <td><label class="control-label-kh">២.១.១ បញ្ចប់ &nbsp;</label></td>
+							 <td><input type="checkbox" name="end_cert" id="end_cert">&nbsp;</td>
+							 <td><label class="control-label-kh">&nbsp;ផ្តើមថ្ងៃទី ខែ ឆ្នាំ&nbsp;</label></td>
+							 <td><input type="text" class="form-control" name="date_of_completion" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td>
+							​​ <td><label class="control-label-kh">&nbsp;យោងតាមសេចក្តីសំរេចលេខ&nbsp;</label></td>
+							​ <td class="col-xs-2"><input type="text" class="form-control" name="cert_completion_no">&nbsp;</td>
+						</tr>	
+					</table>
+				</div>
 			</div>							
 			<div class="form-group">
 			  <table>
@@ -75,16 +80,19 @@
 			   </tr>	
 			  </table>
 			</div>				
-			<div class="form-group">
+			<div class="form-group row">
+			<div class="col-xs-12">
 			  <table>
 			   <tr>
-				  <td><label class="control-label-kh">២.១.៤	ក្រុមប្រឹក្សាអនុម័តឲ្យប្រកបពេញសិទ្ធិ &nbsp;&nbsp;</label>    </td>
-				  <td><input type="checkbox" name="is_fulltime" id="is_fulltime">&nbsp;&nbsp;</td>
-				  <td><label class="control-label-kh">សេចក្តីសម្រេច                                      &nbsp;&nbsp;</label>    </td>
-				  <td><input type="text" class="form-control" name="date_of_fulltime" id="date_of_fulltime" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;&nbsp;</td>
-				  <td>(ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</td> 
+						<td><label class="control-label-kh">២.១.៤	ក្រុមប្រឹក្សាអនុម័តឲ្យប្រកបពេញសិទ្ធិ</label></td>
+						<td><input type="checkbox" name="is_fulltime" id="is_fulltime">&nbsp;</td>
+						<td><label class="control-label-kh">សេចក្តីសម្រេចលេខ&nbsp;</label></td>
+						<td class="col-xs-2"><input type="text" class="form-control" name="fulltime_no">&nbsp;</td>
+						<td><label class="control-label-kh">ថ្ងៃ ខែ ឆ្នាំ&nbsp;</label></td>
+						<td><input type="text" class="form-control" name="date_of_fulltime" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td>
 			   </tr>	
 			  </table>
+				</div>
 			</div>
 			<hr />
 			<div class="form-group">
@@ -93,24 +101,31 @@
 			<div class="form-group">
 			  <table>
 			   <tr>
-				  <td><label class="control-label-kh">២.២.១ ត្រូវបំពេញសុក្រិត្យការ &nbsp;&nbsp;</label>    </td>
-				  <td><input type="checkbox" name="fairness" id="fairness">&nbsp;&nbsp;</td>
-				  <td><label class="control-label-kh">ចាប់ផ្តើមថ្ងៃ ខែ ឆ្នាំ&nbsp;&nbsp;</label>    </td>
-				  <td><input type="text" class="form-control" name="fairness_date" id="fairness_date" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;&nbsp;</td>
+				  <td><label class="control-label-kh">២.២.១ ត្រូវបំពេញសុក្រិត្យការ &nbsp;</label></td>
+				  <td><input type="checkbox" name="fairness" id="fairness">&nbsp;</td>
+				  <td><label class="control-label-kh">ចាប់ផ្តើមថ្ងៃ ខែ ឆ្នាំ&nbsp;</label></td>
+				  <td><input type="text" class="form-control" name="fairness_date" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td>
+				​​  <td><label class="control-label-kh">&nbsp;​​​បញ្ចប់ថ្ងៃ ខែ ឆ្នាំ&nbsp;</label></td>
+				  <td><input type="text" class="form-control" name="fairness_date_end" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td>
 			   </tr>	
 			  </table>
-			</div>								
-			<div class="form-group">
-			  <table>
-			   <tr>
-				  <td><label class="control-label-kh">២.២.២	លើកលែងបំពេញសុក្រិត្យការ &nbsp;&nbsp;</label>    </td>
-				  <td><input type="checkbox" name="without_fairness" id="without_fairness">&nbsp;&nbsp;</td>
-				  <td><label class="control-label-kh">សេចក្តីសម្រេច&nbsp;&nbsp;</label>    </td>
-				  <td><input type="text" class="form-control" name="fairness_verdict" id="fairness_verdict" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;&nbsp;</td>
-				  <td>លេខ .... (ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</td>
-			   </tr>	
-			  </table>
-			</div>								
+			</div>
+<!-- -->
+			<div class="form-group row">
+				<div class="col-xs-11">
+					<table>
+					<tr>
+						<td><label class="control-label-kh">២.២.២ វិញ្ញាបនប័ត្រសុក្រិត្យការ វិជ្ជាជីវៈមេធាវី</label></td>
+						<td><input type="checkbox" name="is_cert_of_pro_accr" id="is_cert_of_pro_accr">&nbsp;</td>
+						<td><label class="control-label-kh">ចេញលេខ</label></td>
+						<td class="col-xs-2"><input type="text" class="form-control" name="cert_of_pro_accr_no">&nbsp;</td>
+						<td><label class="control-label-kh">&nbsp;​​​ថ្ងៃ ខែ ឆ្នាំ&nbsp;</label></td>
+						<td><input type="text" class="form-control" name="cert_of_pro_accr_date" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td>
+					</tr>	
+					</table>
+				</div>
+			</div>	
+<!-- -->								
 			<div class="form-group">
 			  <table>
 			   <tr>
@@ -121,27 +136,37 @@
 			   </tr>	
 			  </table>
 			</div>								
-			<div class="form-group">
-			  <table>
-			   <tr>
-				  <td><label class="control-label-kh">២.២.៥	មិនបាច់ធ្វើកម្មសិក្សា&nbsp;&nbsp;</label>    </td>
-				  <td><input type="checkbox" name="no_probabtion" id="no_probabtion">&nbsp;&nbsp;</td>
-				  <td><label class="control-label-kh">សេចក្តីសម្រេចលេខ&nbsp;&nbsp;</label>    </td>
-				  <td><input type="text" name="probabtion_verdict" id="probabtion_verdict" class="form-control" >&nbsp;&nbsp;</td>
-				  <td>(ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</td> 
-			   </tr>	
-			  </table>
+			<div class="form-group row">
+				<div class="col-xs-10">
+					<table>
+						<tr>
+								<td><label class="control-label-kh">២.២.៥	លើកលែងធ្វើកម្មសិក្សា&nbsp;</label></td>
+								<td><input type="checkbox" name="no_probabtion" id="no_probabtion">&nbsp;</td>
+								<td><label class="control-label-kh">&nbsp;សេចក្តីសម្រេចលេខ</label></td>
+								<td class="col-xs-2"><input type="text" name="probabtion_verdict" class="form-control">&nbsp;</td>
+								<td><label class="control-label-kh">ថ្ងៃទី ខែ ឆ្នាំ&nbsp;</label></td>
+								<td><input type="text" name="date_of_probabtion_verdict" class="form-control" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td>
+						
+						</tr>
+					</table>			
+				</div>
+
+
 			</div>	
-			<div class="form-group">
-			  <table>
-			   <tr>
-				  <td><label class="control-label-kh">២.២.៦	ក្រុមប្រឹក្សាអនុម័តឲ្យប្រកបពេញសិទ្ធិ  &nbsp;&nbsp;</label></td>
-				  <td><input type="checkbox" name="allow_fulltime" id="allow_fulltime">&nbsp;&nbsp;</td>
-				  <td><label class="control-label-kh">&nbsp;&nbsp;សេចក្តីសម្រេច លេខ&nbsp;&nbsp;</label></td>
-				  <td><input type="text" class="form-control" name="fulltime_verdict" id="fulltime_verdict" >&nbsp;&nbsp;</td>
-				  <td>(ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</td> 
-			   </tr>	
-			  </table>
+
+			<div class="form-group row">
+				<div class="col-xs-12">
+					<table>
+						<tr>
+							<td><label class="control-label-kh">២.២.៦	ក្រុមប្រឹក្សាអនុម័តឲ្យប្រកបពេញសិទ្ធិ</label></td>
+							<td><input type="checkbox" name="allow_fulltime" id="allow_fulltime">&nbsp;</td>
+							<td><label class="control-label-kh">&nbsp;សេចក្តីសម្រេច លេខ&nbsp;</label></td>
+							<td class="col-xs-2"><input type="text" class="form-control" name="fulltime_verdict">&nbsp;</td>
+							<td><label class="control-label-kh">ថ្ងៃទី ខែ ឆ្នាំ&nbsp;</label></td> 
+							<td><input type="text" class="form-control" name="fulltime_verdict_date" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td>			
+						</tr>	
+					</table>
+				</div>
 			</div>							
 			<hr />
 			<div class="form-group">
@@ -187,58 +212,99 @@
 			   </tr>	
 			  </table>
 			</div>									
-			<div class="form-group">
-			  <table>
-			   <tr>
-				  <td><label class="control-label-kh">២.៤.២	តាមសេចក្តីសម្រេចដាក់ឲ្យនៅក្រៅបញ្ជី &nbsp;&nbsp;</label></td>
-				  <td><input type="checkbox" name="is_out" id="is_out">&nbsp;&nbsp;
-				   </td>
-				   <td><label class="control-label-kh">&nbsp;&nbsp;សេចក្តីសម្រេច លេខឆ្នាំ&nbsp;&nbsp;</label></td> 
-				  <td><input type="text" class="form-control" name="date_of_verdict" id="date_of_verdict">&nbsp;&nbsp;
-				   </td>
-				  <td>(ចុះលេខ និង ថ្ងៃខែឆ្នាំ)</td> 
-			   </tr>	
-			  </table>
+			<div class="form-group row">
+				<div class="col-xs-10">
+					<table>
+						<tr>
+							<td><label class="control-label-kh">២.៤.២	តំរូវឲ្យនៅក្រៅបញ្ជី &nbsp;</label></td>
+							<td><input type="checkbox" name="is_out" id="is_out">&nbsp;</td>
+							​​<td><label class="control-label-kh">&nbsp;សេចក្តីសម្រេចលេខ&nbsp;</label></td> 
+							<td class="col-xs-2"><input type="text" class="form-control" name="verdict_no">&nbsp;</td> 
+							<td><label class="control-label-kh">&nbsp;នៅថ្ងៃ ខែ ឆ្នាំ&nbsp;</label></td> 
+							<td><input type="text" class="form-control" name="date_of_verdict" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td> 
+						</tr>	
+					</table>
+			  	</div>
+			</div>
+			<!-- -->
+			<div class="form-group row">
+				<div class="col-xs-12">
+					<table>
+						<tr>
+							<td><label class="control-label-kh">អស់សុពលភាពត្រឹម&nbsp;</label></td>
+							<td><input type="text" class="form-control" name="out_list_validity" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td> 
+							<td><label class="control-label-kh">&nbsp;មូលហេតុ&nbsp;</label></td> 
+							<td><textarea name="out_list_reason" id="out_list_reason" type="text"></textarea></td> 
+						</tr>	
+					</table>
+			  	</div>
+			</div>
+			<!-- -->
+			<div class="form-group row">
+				<div class="col-xs-11">
+					<table>
+						<tr>
+							<td><label class="control-label-kh">២.៤.៣​ សុំមិនប្រកបវិជ្ជាជីវៈមេធាវី&nbsp;</label></td>
+							<td><input type="checkbox" name="is_no_pro" id="is_no_pro">&nbsp;</td>
+							​​<td><label class="control-label-kh">&nbsp;សេចក្តីសម្រេចលេខ&nbsp;</label></td> 
+							<td class="col-xs-2"><input type="text" class="form-control" name="no_pro_no">&nbsp;</td> 
+							<td><label class="control-label-kh">&nbsp;នៅថ្ងៃ ខែ ឆ្នាំ&nbsp;</label></td> 
+							<td><input type="text" class="form-control" name="date_of_no_pro" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td> 
+						</tr>	
+					</table>
+			  	</div>
 			</div>
 			<hr />									
 			<div class="form-group">
 				<label class="control-label-kh"><b>២.៥ ការហាមឃាត់មិនឲ្យប្រកប</b></label>
 			</div>														
-			<div class="form-group">
-			  <table>
-			   <tr>
-				  <td><label class="control-label-kh">២.៥.១	សេចក្តីសម្រេច&nbsp;&nbsp;</label></td>
-				  <td><input type="text" class="form-control" name="final_statement" required="required">&nbsp;&nbsp;
-				   </td>
-			   </tr>	
-			  </table>
-			</div>	
-        </div>
-    <div id="tab_content3" role="tabpanel" class="tab-pane fade" aria-labelledby="profile-tab">
+			<div class="form-group row">
+				<div class="col-xs-8">
+					<table>
+						<tr>
+							<td><label class="control-label-kh">២.៥.១	សេចក្តីសម្រេចលេខ&nbsp;</label></td>
+							<td class="col-xs-2"><input type="text" class="form-control" name="final_statement">&nbsp;</td>
+							<td><label class="control-label-kh">នៅថ្ងៃ ខែ ឆ្នាំ&nbsp;</label></td>
+							<td><input type="text" class="form-control" name="date_of_final_statement" data-inputmask="'mask': '99/99/9999'" placeholder="DD/MM/YYYY">&nbsp;</td>
+						</tr>	
+					</table>
+			  	</div>
+			</div>
+			<div class="form-group row">
+				<p>
+					<label class="control-label-kh">&nbsp;&nbsp;មូលហេតុ&nbsp;</label>
+					<textarea name="final_statement_reason" id="final_statement_reason" rows="4" cols="300" type="text"></textarea>
+				</p>
+			</div>		
+        </div> <!-- End of Content2-->
+		
+		<div id="tab_content3" role="tabpanel" class="tab-pane fade" aria-labelledby="profile-tab">
 		  <div class="form-group after-add-edu-more">	
 			<div class="form-group">
+				<p><label class="control-label-kh">លើកទី ១</label></p>
 				<table>
 		 		  <tr>
-					<td><label class="control-label-kh">លើកទី ១&nbsp;&nbsp;</label></td>
-					<td><label class="control-label-kh">ចំនួនម៉ោងសិក្សា៖&nbsp;&nbsp;</label></td>
-					<td><input type="text" name="class_hours" class="form-control" required="required">&nbsp;&nbsp;
-					</td>
+					<td><label class="control-label-kh">មុខវិជ្ជា&emsp;</label></td>
+					<td><input type="text" name="subject" class="form-control"></td>
+					<td><label class="control-label-kh">&emsp;ចំនួនម៉ោងសិក្សា៖&emsp;</label></td>
+					<td><input type="text" name="class_hours" class="form-control"></td>
 		 		  </tr>	
-		    </table>
-	   	</div>
+				</table>
+			</div>
 		  </div>	   
 		<!-- This is where the form elements are dynamically generated-->
 			<div class="copy-edu hide">
 				<hr />	
-				<div class="form-group">		
-					<table>
+				<div class="form-group">
+					<p><label class="control-label-kh">លើកទីបន្ទាប់</label></p>		
+				   <table>
 				    <tr>
-							<td><label class="control-label-kh">លើកទីបន្ទាប់&nbsp;&nbsp;</label></td>
-							<td><label class="control-label-kh">ចំនួនម៉ោងសិក្សា៖&nbsp;&nbsp;</label></td>
-							<td><input type="text" name="class_hours" class="form-control" required="required">&nbsp;&nbsp;
-							</td>
-						</tr>									  
-					</table>
+						<td><label class="control-label-kh">មុខវិជ្ជា&emsp;</label></td>
+						<td><input type="text" name="subject" class="form-control"></td>
+						<td><label class="control-label-kh">&emsp;ចំនួនម៉ោងសិក្សា៖&emsp;</label></td>
+						<td><input type="text" name="class_hours" class="form-control"></td>
+					</tr>									  
+				   </table>
 					<br />
 					<div class="input-group-btn"> 
 						<button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>				  
@@ -251,7 +317,8 @@
 				<button class="btn btn-success add-edu-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
 			</div>	   
         </div> <!-- End Tab3-->
-        <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+        
+		<div id="tab_content4" role="tabpanel" class="tab-pane fade" aria-labelledby="profile-tab">
 			<div class="form-group">
 				<p><label class="control-label-kh"><b>បណ្តឹង</b>&emsp;</label>
 					<input type="checkbox" name="is_sued">
@@ -286,9 +353,9 @@
 					</td>
 				 </tr>										  
 				</table>
-	   		</div>
+	   	</div>
 		</div> <!-- end content tab4-->
 		<button type="button" id="go" data-dismiss="modal" class="btn btn-success btn-lg pull-right"><label>Submit</label></button>
-	   </div>
+	 </div>
 	</form>	
 </div>

@@ -294,80 +294,13 @@
 			
 		</div>
 <!-- End of Tab 33-->
-      <div id="tab_content44" role="tabpanel" class="tab-pane fade" aria-labelledby="profile-tab">
-	  <p>ddd</p>
-			<?php
-			if($discipline){
-					foreach($discipline as $dis){
-			?>
-
-					<div class="form-group">
-						<p><label class="control-label-kh"><b>បណ្តឹង</b>&emsp;</label>
-							<input type="checkbox" name="is_sued" <?php echo $dis->lawyer_id?"checked='checked'":""; ?>>
-						</p>
-						<p><label class="control-label-kh"><i>បរិយាយសង្ខេប</i>&emsp;</label>
-						</p>
-						<p><textarea name="complaint_des" id="complaint_des" rows="4" cols="500" type="text"><?php echo $dis->complaints_desc; ?></textarea>
-						</p>
-						<p>
-							<label class="control-label-kh">ចប់ដោយការផ្សះផ្សារបស់ប្រធាន&emsp;</label>	
-							<input type="checkbox" name="end_compliant_by_president">
-						</p>
-						<p>
-							<label class="control-label-kh">ត្រូវធ្វើអធិការកិច្ច&emsp;</label>
-							<input type="checkbox" name="to_be_inspected">&emsp;
-							<label class="control-label-kh">របាយការណ៍អធិការកិច្ច&emsp;</label>  	
-							<input type="button" value="Download របាយការណ៍">
-						</p>
-					</div>
-			<?php
-					}
-				}else{
-			?>
-					<div class="form-group">
-						<p><label class="control-label-kh"><b>បណ្តឹង444</b>&emsp;</label>
-							<input type="checkbox" name="is_sued">
-						</p>
-						<p><label class="control-label-kh"><i>បរិយាយសង្ខេប</i>&emsp;</label>
-						</p>
-						<p><textarea name="complaint_des" id="complaint_des" rows="4" cols="500" type="text"></textarea></p>
-						<p>
-							<label class="control-label-kh">ចប់ដោយការផ្សះផ្សារបស់ប្រធាន&emsp;</label>	
-							<input type="checkbox" name="end_compliant_by_president">
-						</p>
-						<p>
-							<label class="control-label-kh">ត្រូវធ្វើអធិការកិច្ច&emsp;</label>
-							<input type="checkbox" name="to_be_inspected">&emsp;
-							<label class="control-label-kh">របាយការណ៍អធិការកិច្ច&emsp;</label>  	
-							<input type="button" value="Download របាយការណ៍">
-						</p>
-					</div>
-				
-					<div class="form-group">
-						<table>				 							  
-				 			<tr>
-								<td><label class="control-label-kh">សេចក្តីសម្រេចក្រុមប្រឹក្សា៖&emsp;</label></td>
-								<td colspan=3>
-							<?php
-							foreach($council_decision as $decision){
-								echo "<input type='radio' name='council_decision' value='".$decision->id."'>";	
-								echo " &nbsp;&nbsp;";
-								echo "<label class='control-label-kh'><i>".$decision->decision;
-								echo "</i>&nbsp;&nbsp;</label>";	
-							}
-							?>
-					</td>
-				 </tr>										  
-				</table>
-	   		</div>
-
-			<?php
-				}
-			?>
-		  </div> <!-- end content tab4-->
+        <div id="tab_content44" role="tabpanel" class="tab-pane fade" aria-labelledby="profile-tab">
+        	<p>This is tab 4</p>
+		    </div> <!-- end content tab4-->
 		      <button type="button" id="update" data-dismiss="modal" class="btn btn-success btn-lg pull-right"><label>Update</label></button>
-	  </div>
-<!-- End of Tab_Content-->
+	   </div>
+<!-- End of Tab 44-->
+   
 	</form>	
 </div>
 <script src="<?php echo base_url();?>public/vendors/jquery/dist/jquery.min.js"></script>

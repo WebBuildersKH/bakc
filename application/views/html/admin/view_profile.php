@@ -243,7 +243,8 @@
 									$total_hour =0;
 									foreach($education as $edu){
 										echo "<p><label class='control-label-kh'><b>លើកទី ".$i."&emsp;</b></label></p>";
-										echo "<p><label class='control-label-kh'>ចំនួនម៉ោងសិក្សា:&emsp;";
+										echo "<p><label class='control-label-kh'>មុខវិជ្ជា: ".$edu->subject;
+										echo "&emsp;ចំនួនម៉ោងសិក្សា:&emsp;";
 										echo	$edu->number_of_hours." ម៉ោង"."</label></p><hr />";
 										$total_hour = $total_hour + $edu->number_of_hours;
 										$i++;
@@ -259,12 +260,12 @@
 								<?php
 									$i=1;
 									foreach($discipline as $d){
-										echo "<p><label class='control-label-kh'>បណ្តឹងទី ".$i."&emsp;</label></p>";	
+										echo "<p><label class='control-label-kh'><b>បណ្តឹងទី ".$i."</b>&emsp;</label></p>";	
 										echo "<p><label class='control-label-kh'><i>បរិយាយសង្ខេប</i></label></p>";
 										echo "<p>".$d->complaints_desc."</p>";
 										echo "<p><label class='control-label-kh'>ចប់ដោយការផ្សះផ្សារបស់ប្រធាន:&emsp;".$d->is_presidential_reconciliation."</label></p>";
 										echo "<p><label class='control-label-kh'>ត្រូវធ្វើអធិការកិច្ច:&emsp;".$d->is_inspection."</label></p>";
-										echo "<p><label class='control-label-kh'>សេចក្តីសម្រេចក្រុមប្រឹក្សា:&emsp;".$d->cd_id."</label></p>";
+										echo "<p><label class='control-label-kh'>សេចក្តីសម្រេចក្រុមប្រឹក្សា:&emsp;".$d->cd_id."</label></p><hr />";
 										$i++;	
 									}
 

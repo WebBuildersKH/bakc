@@ -1,0 +1,33 @@
+On new_lawyer_tab_popup
+
+
+input name = fulltime_no
+
+input name = cert_completion_no
+
+input name = fairness_date_end  (db: date_end_of_righteousness) 
+
+
+<input type="checkbox" name="is_cert_of_pro_accr" id="is_cert_of_pro_accr">
+
+input name = cert_of_pro_accr_no
+
+input name = cert_of_pro_accr_date
+
+input name = date_of_probabtion_verdict  (db: date_of_no_prob_righteousness)
+
+input name = fulltime_verdict_date (db: date_of_fulltime_approval)
+
+input name =verdict_no (db: out_bar_no)
+
+input name = no_pro_no
+
+input name = date_of_no_pro
+
+input name = date_of_final_statement (db: date_of_prohibition)
+
+textarea = final_statement_reason (db: prohibition_reason )
+
+input name = out_list_validity
+
+textarea = out_list_reason

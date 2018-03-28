@@ -9,6 +9,10 @@ $lang['lawyer_list'] = 'Lawyer List';
 
 $lang['processing_doc'] = 'Processing Documents';
 
+$lang['discipline_menu'] = 'Disciplinary Action';
+$lang['discipline_list'] = 'Charged Lawyer List';
+$lang['discipline_add'] = 'Add new disciplinary action';
+
 $lang['legalaids_menu'] = 'Legal Aids';
 
 $lang['inspection_menu'] = 'Inspection';

@@ -10,6 +10,9 @@ $lang['lawyer_menu_profiles'] = 'បង្ហាញទិន្នន័យម�
 $lang['lawyer_list'] = 'តារាងបញ្ជីឈ្មោះមេធាវី';
 
 $lang['processing_doc'] = 'តាមដានលំហូរឯកសារ';
+$lang['discipline_menu'] = 'ចាត់វិធានការវិន័យ';
+$lang['discipline_list'] = 'តារាងបញ្ជីឈ្មោះមេធាវីដែលជាប់បណ្តឺង';
+$lang['discipline_add'] = 'ឈ្មោះមេធាវីដែលត្រូវជាប់បណ្តឺង';
 
 $lang['users_menu'] = 'គ្រប់គ្រងអ្នកប្រើប្រព័ន្ទ';
 $lang['users_menu_add'] = 'បង្កើតអ្នកប្រើថ្មី';
@@ -25,7 +28,7 @@ $lang['legalaids_menu'] = 'ជំនួយផ្នែកច្បាប់';
 	
 $lang['inspection_menu'] = 'អធិការកិច្ច';
 $lang['inspection_menu_list'] = 'បញ្ជីអធិការកិច្ច';
-$lang['inspection_list'] = 'តារាងបញ្ជីអធិការកិច្ច';
+$lang['inspection_list'] = 'ពាក្យសុំចូលប្រកបវិជ្ជាជីវ:មេធាវី';
 $lang['inspection_apply'] = 'សំណើរសុំប្រកបវិជ្ជាជីវៈមេធាវី';
 
 $lang['change_passwd'] = 'ប្តូរពាក្យសំងាត់';

@@ -25,26 +25,150 @@ public function __construct()
 
 	public function save()
 	{
-/*		if($this->input->post('staffid') && $this->input->post('username') && $this->input->post('password'))
+
+		$candidate = array();
+		$degree_records = array();
+		$is_candidate_post = 0;
+		$result1 = '';
+		$result2 = '';
+		$result3 = '';
+		$result4 = '';
+		$return_id = 0;
+
+		if($this->input->post("candidate_name_kh"))
 		{
-				$data['staffid'] = $this->input->post('staffid');
-				$data['username'] = $this->input->post('username');
-				$data['password'] = $this->input->post('password');
-				$data['role'] = $this->input->post('role');
-				date_default_timezone_set("Pacific/Auckland");
-				$data['modidate'] = date('d-m-Y g:i a');
-				$data['isActive'] = 1; 
-				echo $this->users_model->insert($data);			
-		}*/
+			$this->load->model('Candidates_model');
+			$candidate["candidate_name_kh"] = $this->input->post("candidate_name_kh");
+			$candidate["candidate_name_en"] = $this->input->post("candidate_name_en");
+			$candidate["candidate_dob"] = $this->input->post("candidate_dob");	
+			$candidate['modidate'] = date('d-m-Y g:i a');
+			$temp_result = $this->Candidates_model->insert($candidate);
+			$return_id = $temp_result["return_id"];
+		//if succesfully saved profile in the DB
+			$is_candidate_post = 1;
+			$result1 = json_encode($temp_result);
+		}
+
+		if($is_candidate_post == 1){
+
+			$this->load->model('Candidate_degree_records_model');
+			
+			if($this->input->post("is_ba")){
+				$ba = array();
+				$ba["candidate_id"]	= $return_id;
+				$ba["degree_type_id"] = "1";
+				$ba["degree_school"] = $this->input->post("ba_institution")?$this->input->post("ba_institution"):"";
+				$ba["degree_date"] = $this->input->post("date_of_ba")?$this->input->post("date_of_ba"):"";
+				$ba["attachment_path"] = isset($_FILES['ba_file'])?$_FILES['ba_file']['name']:"";
+
+				if($ba["attachment_path"]){
+					$ba["attachment_path"]  = $this->upload_file("ba_file",$_FILES['ba_file']['name']);
+				}
+				$this->Candidate_degree_records_model->insert($ba);
+			}
+
+			if($this->input->post("is_ma")){
+				$ma = array();
+				$ma["candidate_id"]	= $return_id;
+				$ma["degree_type_id"] = "2";
+				$ma["degree_school"] = $this->input->post("ma_institution")?$this->input->post("ma_institution"):"";
+				$ma["degree_date"] = $this->input->post("date_of_ma")?$this->input->post("date_of_ma"):"";
+				$ma["attachment_path"] = isset($_FILES['ma_file'])?$_FILES['ma_file']['name']:"";
+
+				if($ma["attachment_path"]){
+					$ma["attachment_path"]  = $this->upload_file("ma_file",$_FILES['ma_file']['name']);
+				}
+				$this->Candidate_degree_records_model->insert($ma);
+			}
+			
+			if($this->input->post("is_phd")){
+				$phd = array();
+				$phd["candidate_id"] = $return_id;
+				$phd["degree_type_id"] = "3";
+				$phd["degree_school"] = $this->input->post("phd_institution");
+				$phd["degree_date"] = $this->input->post("date_of_phd");
+				$phd["attachment_path"] = isset($_FILES['phd_file'])?$_FILES['phd_file']['name']:"";
+
+				if($phd["attachment_path"]){
+					$phd["attachment_path"]  = $this->upload_file("phd_file",$_FILES['phd_file']['name']);
+				}
+				$this->Candidate_degree_records_model->insert($phd);
+
+			}
+
+			if($this->input->post("institution")){ //tab content 3
+				$this->load->model('Candidate_experience_criteria_model');
+				$exp = array();
+				$exp['candidate_id'] = $return_id;
+				$exp['institution'] = $this->input->post("institution");
+				$exp['exp_detail'] = $this->input->post("exp_detail");
+				$exp['modidate'] = date('d-m-Y g:i a');
+
+				$result3 = $this->Candidate_experience_criteria_model->insert($exp);
+			}
+
+			if($this->input->post("applying_date")){
+				$this->load->model('candidate_progress');
+				$progress = array();
+				$progress['candidate_id'] = $return_id;
+				$progress['applying_date'] = $this->input->post("applying_date");
+				$progress['is_inspection_assigned'] = $this->input->post("is_inspection_assigned");
+				$progress['composition_name1'] = $this->input->post("composition_name1");
+				$progress['composition_name2'] = $this->input->post("composition_name2");
+				$progress['composition_name3'] = $this->input->post("composition_name3");
+				$progress['date_of_inspection_submission'] = $this->input->post("date_of_inspection_submission");
+				$progress['inspection_decision_no'] = $this->input->post("inspection_decision_no");
+				$progress['date_of_inspection_decision'] = $this->input->post("date_of_inspection_decision");
+				//put report file here
+				$progress['inspection_report_des'] = $this->input->post("inspection_report_des");
+				$progress['date_of_interview'] = $this->input->post("date_of_interview");
+				$progress['interview_report_des'] = $this->input->post("interview_report_des");
+				$progress['composition_name3'] = $this->input->post("composition_name3");
+			}
+		}
 
 
+		$result['candidate'] = $result1; 
+		$result['experience'] = $result3; 
+		
+		echo json_encode($result);
 	}	
+
+	public function upload_file($filename,$newname)
+	{
+
+				$path = "images/";
+				$valid_file_formats = array("jpg", "png", "gif", "bmp","jpeg","pdf");
+				$name = $_FILES[$filename]['name'];
+				$size = $_FILES[$filename]['size'];
+				$user_id = 1;
+				//print_R($_POST);die;
+				if(strlen($name)) {
+					list($txt, $ext) = explode(".", $name);
+					if(in_array($ext,$valid_file_formats)) 
+					{
+						if($size<(1024*1024)) 
+						{						
+							//$image_name = time().'_'.$user_id.".".$ext;
+							$image_name = $newname.'_'.$user_id.".".$ext;
+							$tmp = $_FILES[$filename]['tmp_name'];
+							if(move_uploaded_file($tmp, $path.$image_name)){
+								return $path.$image_name;
+							}
+						}
+					}
+				}
+		return false;		
+	}
+
 	public function index()
 	{
 
 		//$data['page_title'] = "Lawyers - Add New Lawyer";
+		$this->load->model('Candidates_model');
 		$data['page_title'] = $this->lang->line('inspection_list');
 		$data['permission'] = $this->permission;
+		$data['candidates'] = $this->Candidates_model->get_data();
 		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar', $data);
 		$this->load->view('html/admin/templates/menu_footer.php');

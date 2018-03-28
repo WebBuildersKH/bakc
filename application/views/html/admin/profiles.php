@@ -80,7 +80,7 @@
                       echo "<td><a class='btn btn-app1' href='view_profile/".$lawyer->id."'>";
                       echo "<i class='glyphicon glyphicon-eye-open'></i>";
                       echo "<label>ចូលមើល</label></a></td>";
-                      echo "<td><a class='btn btn-app1' id='edit-modal' data-target='#bs-edit-modal-lg' data-toggle='modal' data-id='".$lawyer->id."' ><i class='glyphicon glyphicon-edit'></i>";
+                      echo "<td><a class='btn btn-app1 edit-lawyer' data-toggle='modal' data-id='".$lawyer->id."'><i class='glyphicon glyphicon-edit'></i>";
                       echo "<label>កែប្រែ</label></a></td></tr>";
                       $i++;
                     }
@@ -89,21 +89,17 @@
             </table>	 
           </div>
 <!--edit -->
-                  <div class="modal fade bs-edit-modal-lg" id="bs-edit-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal fade bs-edit-modal-lg"  tabindex="-1" aria-hidden="false">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">×</span>
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="false"><span aria-hidden="true">×</span>
                           </button>
                           <h4><?php echo $this->lang->line('lawyer_menu'); ?></h4>
                         </div>
                         <div class="modal-body">
 
                         </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-
                       </div>
                     </div>
                   </div>	

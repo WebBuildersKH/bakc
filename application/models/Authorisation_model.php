@@ -100,7 +100,7 @@ class Authorisation_model extends CI_Model {
     public function is_admin($permission_array)
 	{
 		foreach($permission_array as $p){
-            if($p->PERMIS_LABEL == "Adminstrate")
+            if($p->PERMIS_LABEL == "Administrate")
                 return TRUE;
         }
 

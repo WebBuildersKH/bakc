@@ -7,8 +7,9 @@ class Professional_conditions_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function insert($pc)
+	public function insert($data)
 	{
+		/*
 		$data = array(
            'lawyer_id' => $pc['lawyer_id'] ,
            'date_of_completion' => $pc['date_of_completion'] ,
@@ -33,7 +34,7 @@ class Professional_conditions_model extends CI_Model {
 		   'prohibition_statement' => $pc['prohibition_statement'] ,
            'modidate' => $pc['modidate']	   
 		);
-		
+		*/
 		if(!$this->db->insert('professional_conditions', $data))
 		{
 			$error["message"] = "Error occurs while inserting data!";

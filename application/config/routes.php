@@ -11,12 +11,19 @@ $route['logout'] = 'VerifyLogin/logout';
 $route['administrator/new_lawyer_form'] = 'Lawyers';
 $route['administrator/profiles'] = 'Lawyers/view_profiles';
 $route['administrator/view_profile/(:num)'] = 'Lawyers/view_profile/$1';
-$route['administrator/edit_profile/(:num)'] = 'Lawyers/edit_profile/$1';
+$route['administrator/view_edit_profile/(:num)'] = 'Lawyers/view_edit_profile/$1';
 $route['administrator/lawyer/save'] = 'Lawyers/save';
 $route['loads/lawyer_data_table'] = 'Lawyers/load_data_table';
+$route['administrator/lawyer/search'] = 'Lawyers/search';
+$route['administrator/lawyer/update'] = 'Lawyers/update';
 
 //Test modal
 $route['administrator/modal'] = 'Lawyers/test_modal';
+//Disciplinary Action
+$route['administrator/disciplinary_action'] = 'Discipline';
+$route['administrator/discipline/search/(:num)'] = 'Discipline/search/$1';
+$route['administrator/discipline/update'] = 'Discipline/update';
+$route['administrator/discipline/save'] = 'Discipline/save';
 
 //Route for Users
 $route['administrator/users'] = 'Users';
@@ -30,6 +37,7 @@ $route['administrator/document_status'] = 'Documents/view_doc_status';
 //Route for Inspection
 $route['administrator/inspection_list'] = 'Inspection';
 $route['loads/inspection_data_table'] = 'Lawyers/load_data_table';
+$route['administrator/inspection/save'] = "Inspection/save";
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

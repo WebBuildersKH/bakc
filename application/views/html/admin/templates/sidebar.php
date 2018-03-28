@@ -6,13 +6,13 @@
 						<?php echo $this->lang->line('dashboard_menu'); ?> <span class="label label-success pull-right"></span></a>
 					</li>	
   <?php foreach($permission as $p){ 
-          if($p->PERMIS_LABEL == "Adminstrate"){      
+          if($p->PERMIS_LABEL == "Administrate"){      
   ?>						
           <li><a><i class="fa fa-user"></i> <?php echo $this->lang->line('lawyer_menu'); ?> <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
               <!-- <li><a href="administrator/new_lawyer_form">$this->lang->line('lawyer_menu_add'); </a></li> -->
 					    <li><a href="<?php echo base_url();?>administrator/profiles"><?php echo $this->lang->line('lawyer_menu_profiles'); ?></a></li>
-					   <!-- <li><a href="<?php //echo base_url();?>administrator/document_status"><?php //echo $this->lang->line('processing_doc'); ?></a></li> -->
+					    <li><a href="<?php echo base_url();?>administrator/disciplinary_action"><?php echo $this->lang->line('discipline_menu'); ?></a></li>
             </ul>
           </li>
       <?php break;} 
@@ -31,9 +31,9 @@
           <li><a><i class="fa fa-eye"></i> <?php echo $this->lang->line('inspection_menu'); ?> <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li>
-                  <a href="<?php echo base_url();?>administrator/inspection"><?php echo $this->lang->line('inspection_apply'); ?></a></li>
+                  <a href="<?php echo base_url();?>administrator/inspection_list"><?php echo $this->lang->line('inspection_apply'); ?></a></li>
                 <li>
-                  <a href="<?php echo base_url();?>administrator/inspection_list"><?php echo $this->lang->line('inspection_menu_list'); ?></a>
+            <!--      <a href="<?php //echo base_url();?>administrator/inspection_list"><?php //echo $this->lang->line('inspection_menu_list'); ?></a> -->
                 </li>
               </ul>
           </li>

@@ -67,15 +67,22 @@ public function save()
 		$pc['lawyer_id'] = $return_id; 
 		//2.1
 		$pc['date_of_completion'] = $data['date_of_completion'];
+		$pc['cert_completion_no'] = $data['cert_completion_no'];	
 		$pc['date_of_prob'] = $data['date_of_prob'];
 		$pc['is_pursue_study'] = $data['pursue_study'];
 		$pc['date_of_fulltime'] = $data['date_of_fulltime'];
+		$pc['fulltime_no'] = $data['fulltime_no'];	
 		//2.2
 		$pc['date_of_righteousness'] = $data['fairness_date'];
-		$pc['date_of_without_righteousness'] = $data['fairness_verdict'];
+		$pc['date_end_of_righteousness'] = $data['fairness_date_end'];
+		//	$pc['date_of_without_righteousness'] = $data['fairness_verdict'];
+		$pc['cert_of_pro_accr_no'] = $data['cert_of_pro_accr_no'];
+		$pc['cert_of_pro_accr_date'] = $data['cert_of_pro_accr_date'];
 		$pc['date_of_prob_righteousness'] = $data['probation_date'];
 		$pc['no_prob_righteousness'] = $data['probabtion_verdict'];
+		$pc['date_of_no_prob_righteousness'] = $data['date_of_probabtion_verdict'];
 		$pc['fulltime_approval'] = $data['fulltime_verdict'];
+		$pc['date_of_fulltime_approval'] = $data['fulltime_verdict_date'];		
 		//2.3
 		$pc['firm_name'] = $data['firm_name'];
 		$pc['authorisation_number'] = $data['approval_id'];
@@ -84,8 +91,15 @@ public function save()
 		//2.4
 		$pc['out_bar_validity'] = $data['date_of_out_validity'];
 		$pc['out_bar_decision'] = $data['date_of_verdict'];
+		$pc['out_list_validity'] = $data['out_list_validity'];
+		$pc['out_list_reason'] = $data['out_list_reason'];
+		$pc['out_bar_no'] = $data['verdict_no'];
+		$pc['no_pro_no'] = $data['no_pro_no'];
+		$pc['date_of_no_pro'] = $data['date_of_no_pro'];
 		//2.5
 		$pc['prohibition_statement'] = $data['final_statement'];
+		$pc['date_of_prohibition'] = $data['date_of_final_statement'];
+		$pc['prohibition_reason'] = $data['final_statement_reason'];
 
 		$pc['modidate'] = date('d-m-Y g:i a');
 
@@ -93,16 +107,44 @@ public function save()
 		$result4 = json_encode($this->Professional_conditions_model->insert($pc));
 		
 
-		if($data['class_hours'])
+		if($data['class_hours']&&$data['subjects'])
 		{
-			$edu = array();
+			
 			$this->load->model('Continuing_education_model');
+
+			$hour_list = array();
+			$i=0;
 			foreach($data['class_hours'] as $hour)
 			{
-				if($hour != "")
-				{
-					$edu['lawyer_id'] = $return_id;	
-					$edu['number_of_hours'] = $hour;
+				$hour_list[$i] = array();
+				$hour_list[$i]['lawyer_id'] = $return_id;	
+				$hour_list[$i]['number_of_hours'] = $hour;
+			$i++;
+			}
+
+			$subject_list = array();
+			$i=0;
+			foreach($data['subjects'] as $subject){
+				if($subject == ""){
+					$subject_list[$i]['subject'] = $subject;
+					$subject_list[$i]['lawyer_id'] = "0";
+					$subject_list[$i]['number_of_hours'] = "0";
+					$i++;
+				}else{
+					$subject_list[$i]['subject'] = $subject;
+					$subject_list[$i]['lawyer_id'] = $hour_list[$i]['lawyer_id'];
+					$subject_list[$i]['number_of_hours'] = $hour_list[$i]['number_of_hours'];
+					$i++;
+				}
+			
+			}
+
+			$edu = array();
+			foreach($subject_list as $list){
+				if($list['lawyer_id']){
+					$edu['lawyer_id'] = $list['lawyer_id'];	
+					$edu['number_of_hours'] = $list['number_of_hours'];
+					$edu['subject'] = $list['subject'];
 					$edu['date_of_study'] = date('d-m-Y g:i a');	
 					$edu['modidate'] = date('d-m-Y g:i a');
 					$result2 = json_encode($this->Continuing_education_model->insert($edu));
@@ -119,8 +161,8 @@ public function save()
 			$this->load->model('Discipline_model');
 			//$discipline['lawyer_code'] = $data['id'];
 			$discipline['lawyer_id'] = $return_id;
-			$discipline['complaint_desc'] = $data['complaint_des'];
-			$discipline['end_compliant_by_president'] = $data['end_compliant_by_president'];
+			$discipline['complaints_desc'] = $data['complaint_des'];
+			$discipline['is_presidential_reconciliation'] = $data['end_compliant_by_president'];
 			$discipline['is_inspection'] = $data['to_be_inspected'];
 			$discipline['complaints_path'] = "";
 			$discipline['cd_id'] = $data['council_decision']?$data['council_decision']:0;
@@ -138,6 +180,170 @@ public function save()
 	echo json_encode($result);
 }	
 //END SAVE
+//UPDATE LAWYER
+public function update()
+{
+
+	$data = $_POST['data'];
+	$lawyer = array();
+	$result = array();
+	$result1 = "";
+	$result2 = "";
+	$result3 = "";
+	$result4 = "";
+
+	//Check if received POST from Lawyer's Profile
+	if($data['name_en']&&$data['name_kh']&&$data['dob']&&$data['lawyer_code'])
+	{
+		$this->load->model('Lawyers_model');
+	//	$lawyer['id'] = $data['lawyer_id'];
+		$lawyer['lawyer_code'] = $data['lawyer_code'];
+		$lawyer['lawyer_name_en'] = $data['name_en'];
+		$lawyer['lawyer_name_kh'] = $data['name_kh'];
+		$lawyer['lawyer_dob'] = $data['dob'];
+		$lawyer['modidate'] = date('d-m-Y g:i a');
+
+		error_log(date('d-m-Y g:i a').":UPDATE-LAWYER: ".json_encode($lawyer)."\r\n", 3, "audit.log");
+		$temp_result = $this->Lawyers_model->update($data['lawyer_id'],$lawyer);
+		//if succesfully saved profile in the DB
+		$result1 = json_encode($temp_result);
+				
+	}
+
+	//START Professional Conditions
+	if($data['condition_id'])
+	{
+		$this->load->model('Professional_conditions_model');
+		$pc = array();
+		//2.1
+		$pc['date_of_completion'] = $data['date_of_completion'];
+		$pc['cert_completion_no'] = $data['cert_completion_no'];
+		$pc['date_of_prob'] = $data['date_of_prob'];
+		$pc['is_pursue_study'] = $data['is_pursue_study'];
+		$pc['date_of_fulltime'] = $data['date_of_fulltime'];
+		$pc['fulltime_no'] = $data['fulltime_no'];
+		//2.2
+		$pc['cert_of_pro_accr_no'] = $data['cert_of_pro_accr_no'];
+		$pc['cert_of_pro_accr_date'] = $data['cert_of_pro_accr_date'];
+		$pc['date_of_righteousness'] = $data['date_of_righteousness'];
+	//	$pc['date_of_without_righteousness'] = $data['date_of_without_righteousness'];
+		$pc['date_of_prob_righteousness'] = $data['date_of_prob_righteousness'];
+		$pc['date_of_no_prob_righteousness'] = $data['date_of_no_prob_righteousness'];
+		$pc['no_prob_righteousness'] = $data['no_prob_righteousness'];
+		$pc['date_end_of_righteousness'] = $data['date_end_of_righteousness'];
+		$pc['fulltime_approval'] = $data['fulltime_approval'];
+		$pc['date_of_fulltime_approval'] = $data['date_of_fulltime_approval'];
+		//2.3
+		$pc['firm_name'] = $data['firm_name'];
+		$pc['authorisation_number'] = $data['authorisation_number'];
+		$pc['permission_number'] = $data['permission_number'];
+		$pc['firm_validity'] = $data['firm_validity'];
+		//2.4
+		$pc['out_bar_validity'] = $data['out_bar_validity'];
+		$pc['out_bar_no'] = $data['out_bar_no'];
+		$pc['out_bar_decision'] = $data['out_bar_decision'];
+		$pc['out_list_validity'] = $data['out_list_validity'];
+		$pc['out_list_reason'] = $data['out_list_reason'];
+
+		$pc['no_pro_no'] = $data['no_pro_no']; 
+		$pc['date_of_no_pro'] = $data['date_of_no_pro'];
+		//2.5
+		$pc['prohibition_statement'] = $data['prohibition_statement'];
+		$pc['date_of_prohibition'] = $data['date_of_prohibition'];
+		$pc['prohibition_reason'] = $data['prohibition_reason'];
+		$pc['modidate'] = date('d-m-Y g:i a');
+
+		error_log(date('d-m-Y g:i a').":UPDATE-PC:".json_encode($pc)."\r\n", 3, "audit.log");
+		$result4 = json_encode($this->Professional_conditions_model->update($data['condition_id'],$pc));
+		
+	} //END Professional Conditions
+	
+	//START Continuing Education
+	if($data['edu_ids']&&$data['subjects']&&$data['number_of_hours'])
+	{
+		$this->load->model('Continuing_education_model');
+
+		$hour_list = array();
+		$i=0;
+		foreach($data['number_of_hours'] as $hour) //start foreach
+		{
+			$hour_list[$i] = array();
+			$hour_list[$i]['edu_id'] = $data['edu_ids'][$i]; 
+			$hour_list[$i]['lawyer_id'] = $data['lawyer_id'];	
+			$hour_list[$i]['number_of_hours'] = $hour;
+		$i++;
+		} //end foreach
+
+		$subject_list = array();
+		$i=0;
+		foreach($data['subjects'] as $subject){ //start foreach
+			if($subject == ""){
+				$subject_list[$i]['id'] = $hour_list[$i]['edu_id'];
+				$subject_list[$i]['subject'] = $subject;
+				$subject_list[$i]['lawyer_id'] = "0";
+				$subject_list[$i]['number_of_hours'] = "0";
+				$i++;
+			}else{
+				$subject_list[$i]['id'] = $hour_list[$i]['edu_id'];
+				$subject_list[$i]['subject'] = $subject;
+				$subject_list[$i]['lawyer_id'] = $hour_list[$i]['lawyer_id'];
+				$subject_list[$i]['number_of_hours'] = $hour_list[$i]['number_of_hours'];
+				$i++;
+			}			
+		} //end foreach
+
+		$edu = array();
+		foreach($subject_list as $list){ //start foreach
+			if($list['lawyer_id']){
+				$edu['lawyer_id'] = $list['lawyer_id'];	
+				$edu['number_of_hours'] = $list['number_of_hours'];
+				$edu['subject'] = $list['subject'];
+				$edu['date_of_study'] = date('d-m-Y g:i a');	
+				$edu['modidate'] = date('d-m-Y g:i a');
+				if($list['id']){
+					//update
+					error_log(date('d-m-Y g:i a').":UPDATE-EDU:".json_encode($edu)."\r\n", 3, "audit.log");
+					$this->Continuing_education_model->update($list['id'],$edu);
+					
+				}else{
+					//Add new
+					error_log(date('d-m-Y g:i a').":INSERT-EDU:".json_encode($edu)."\r\n", 3, "audit.log");
+					$this->Continuing_education_model->insert($edu);
+					
+				}
+			}
+		} //end forearch
+			
+	} //END Conditional Education
+
+/*
+	if($data['is_sued'])
+		{
+			$discipline = array();
+			$this->load->model('Discipline_model');
+			//$discipline['lawyer_code'] = $data['id'];
+			$discipline['lawyer_id'] = $return_id;
+			$discipline['complaints_desc'] = $data['complaint_des'];
+			$discipline['is_presidential_reconciliation'] = $data['end_compliant_by_president'];
+			$discipline['is_inspection'] = $data['to_be_inspected'];
+			$discipline['complaints_path'] = "";
+			$discipline['cd_id'] = $data['council_decision']?$data['council_decision']:0;
+			$discipline['modidate'] = date('d-m-Y g:i a');
+			error_log(date('d-m-Y g:i a')." ".json_encode($discipline)."\r\n", 3, "audit.log");
+			$result3 = json_encode($this->Discipline_model->insert($discipline));
+		}
+	*/
+
+	//$result['lawyers'] = $result1;
+	//$result['education'] = $result2;
+	//$result['discipline'] = $result3;
+	//$result['conditions'] = $result4;
+	$result["message"] = "Successfully updated!";
+	error_log(date('d-m-Y g:i a').":UPDATE:".json_encode($result)."\r\n", 3, "audit.log");
+	echo json_encode($result);
+}
+
+//END UPDATE
 	public function index()
 	{
 
@@ -180,7 +386,7 @@ public function save()
 		$data['lawyer'] = $this->Lawyers_model->get_data_by_id($id);
 		$data['conditions'] = $this->Professional_conditions_model->get_data_by_id($id);
 		$data['education'] = $this->Continuing_education_model->get_data_by_id($id);
-		$data['discipline'] = $this->Discipline_model->get_data_by_id($id);
+		$data['discipline'] = $this->Discipline_model->get_data_by_lawyer_id($id);
 		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar');
 		$this->load->view('html/admin/templates/menu_footer.php');
@@ -190,27 +396,40 @@ public function save()
 		
 	}
 
-	public function edit_profile($id)
+	public function view_edit_profile($id)
 	{
 		$this->load->model('Lawyers_model');
 		$this->load->model('Continuing_education_model');
 		$this->load->model('Professional_conditions_model');
 		$this->load->model('Discipline_model');
+		$this->load->model('Council_decision_model');
 
 		$data['page_title'] = $this->lang->line('lawyer_menu').' - '.$this->lang->line('lawyer_menu_profiles');
 		$data['permission'] = $this->permission;
 		$data['lawyer'] = $this->Lawyers_model->get_data_by_id($id);
 		$data['conditions'] = $this->Professional_conditions_model->get_data_by_id($id);
 		$data['education'] = $this->Continuing_education_model->get_data_by_id($id);
-		$data['discipline'] = $this->Discipline_model->get_data_by_id($id);
+		$data['discipline'] = $this->Discipline_model->get_data_by_lawyer_id($id);
+		$data['council_decision'] = $this->Council_decision_model->get_data();
 		$data['permission'] = $this->permission;
 		$data['id'] = $id;
-		
+		$this->load->view('html/admin/modal_pages/edit_profile_form_modal',$data);
 	//	$this->load->view('html/admin/templates/header', $data);
-		$this->load->view('html/admin/edit_profile',$data);
+	//	$this->load->view('html/admin/edit_profile',$data);
 	//	$this->load->view('html/admin/templates/footer');
 	}
 
+	public function search()
+	{
+		
+		if($_POST['keyword']){
+			$keyword = strval($_POST['keyword']);
+			$this->load->model('Lawyers_model');
+			$result = $this->Lawyers_model->search($keyword);
+			error_log(date('d-m-Y g:i a')." ".json_encode($result)."\r\n", 3, "hello.log");
+			echo json_encode($result);
+		}
+	}
 
 	public function load_data_table()
 	{

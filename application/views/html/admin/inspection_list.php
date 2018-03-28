@@ -39,7 +39,7 @@
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                          <h4 class="modal-title" id="myModalLabel"><?php echo $page_title; ?></h4>
                         </div>
                         <div class="modal-body">
                         <?php 							
@@ -51,70 +51,38 @@
                   </div>					  
                   <div class="form-group">  
 					<table id="datatable" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>      					 
+            <thead>
+             <tr>      					 
 						  <th><label class="control-label-kh"><b>លេខរៀង</b></label></th>
-                          <th><label class="control-label-kh"><b>ឈ្មោះ (ជាខ្មែរ)</b></label></th>
+              <th><label class="control-label-kh"><b>ឈ្មោះ (ជាខ្មែរ)</b></label></th>
 						  <th><label class="control-label-kh"><b>ឈ្មោះ (ជាឡាតាំង)</b></label></th>
 						  <th><label class="control-label-kh"><b>ថ្អៃ ខែ ឆ្នាំកំណើត</b> </label></th>
-						  <th><label class="control-label-kh"><b>អត្តលេខ</b></label></th>
-						  <th><label class="control-label-kh"><b>ស្តេតតឺស</b></label></th>
+              <th><label class="control-label-kh"><b>ចូលមើល</b></label></th>
 						  <th><label class="control-label-kh"><b>កែប្រែ</b></label></th>	
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-						  <td><label class="control-label-kh">កុយ ពន្លឺ</label></td>
-                          <td>Ponleu Koy</td>
-                          <td>S2002</td>
-                          <td>2011/04/25</td>
-						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-edit"></i><label class="control-label-kh">កែប្រែ</label></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-						  <td><label class="control-label-kh">បាន យ៉ាណូ</label></td>
-                          <td>Yanno Ban</td>
-                          <td>S2003</td>
-                          <td>2011/04/25</td>
-						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-edit"></i><label class="control-label-kh">កែប្រែ</label></a>
-                          </td>
-                        </tr>                       
-                        <tr>
-                          <td>3</td>
-						  <td>dara</td>
-                          <td>Dara Sok</td>
-                          <td>S2004</td>
-                          <td>2011/04/25</td>
-						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-edit"></i><label class="control-label-kh">កែប្រែ</label></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-						  <td>khim</td>
-                          <td>Khim Sok</td>
-                          <td>S2005</td>
-                          <td>2011/04/25</td>
-						  <td>Open</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-edit"></i><label class="control-label-kh">កែប្រែ</label></a>
-                          </td>
-                        </tr>   
-                        <tr>
-                          <td>5</td>
-						  <td>seng</td>
-                          <td>Seng Khim</td>
-                          <td>S2035</td>
-                          <td>2011/04/25</td>
-						  <td>Close</td>
-						  <td><a class="btn btn-app1"><i class="fa fa-edit"></i><label class="control-label-kh">កែប្រែ</label></a>
-                          </td>
-                        </tr>   						  
-                      </tbody>
-                    </table>					  				  
+             </tr>
+            </thead>
+            <tbody>
+            <?php
+            $i = 1;
+            foreach($candidates as $candidate){
+                echo "<tr><td>".$i."</td><td>";
+                echo "<label class='control-label-kh'>".$candidate->candidate_name_kh."</label></td>";
+                echo "<td><label class='control-label-kh'>".$candidate->candidate_name_en."</label></td>";
+                echo "<td><label class='control-label-kh'>".$candidate->candidate_dob."</label></td>";
+                echo "<td><a class='btn btn-app1' href='view_candidate/".$candidate->id."'>";
+                echo "<i class='glyphicon glyphicon-eye-open'></i>";
+                echo "<label>ចូលមើល</label></a></td>";
+                echo "<td><a class='btn btn-app1 edit-candidate' data-toggle='modal' data-id='".$candidate->id."'><i class='glyphicon glyphicon-edit'></i>";
+                echo "<label>កែប្រែ</label></a></td></tr>";
+                $i++;
+
+            }
+
+
+            ?>
+ 						  
+            </tbody>
+          </table>					  				  
                   </div>
 				 </div>	  
                 </div>
@@ -122,4 +90,5 @@
 			</div>	
 		</div>
         <!-- /page content -->
+     
 
