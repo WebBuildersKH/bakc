@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 28, 2018 at 01:26 AM
+-- Generation Time: Mar 29, 2018 at 06:36 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.0.23
 
@@ -66,18 +66,17 @@ CREATE TABLE IF NOT EXISTS `candidates` (
   `candidate_gender` varchar(6) NOT NULL,
   `modidate` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `candidates`
 --
 
 INSERT INTO `candidates` (`id`, `candidate_code`, `candidate_name_en`, `candidate_name_kh`, `candidate_dob`, `candidate_gender`, `modidate`) VALUES
-(1, '', 'Rithy Ly', 'រិទ្ធី លី', '12/12/2009', '', '27-03-2018 3:17 pm'),
-(2, '', 'Dith Sochang', 'ឌិត សុចង់', '12/33/3444', '', '27-03-2018 3:52 pm'),
-(3, '', 'Dith Sochang', 'ឌិត សុចង់', '12/33/3444', '', '27-03-2018 3:52 pm'),
-(4, '', 'Sok Dara', 'សុខ ដារា', '11/11/1111', '', '27-03-2018 3:55 pm'),
-(5, '', 'Sok Dara', 'សុខ ដារា', '11/11/1111', '', '27-03-2018 3:55 pm');
+(10, '', 'Rithy Ly', 'លី រិទ្ធី', '', '', '28-03-2018 10:51 am'),
+(9, '', 'Lim Chung Keang', 'លឹម ជុងគាង', '', '', '28-03-2018 10:46 am'),
+(8, '', 'Koy Ponleu', 'កុយ ពន្លឺ', '18/10/1984', '', '28-03-2018 10:38 am'),
+(7, '', 'Ban Yanno', 'បាន យ៉ាណូ', '12/12/1986', '', '28-03-2018 10:30 am');
 
 -- --------------------------------------------------------
 
@@ -95,19 +94,18 @@ CREATE TABLE IF NOT EXISTS `candidate_degree_records` (
   `attachment_path` varchar(250) NOT NULL,
   `modidate` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `candidate_degree_records`
 --
 
 INSERT INTO `candidate_degree_records` (`id`, `candidate_id`, `degree_type_id`, `degree_school`, `degree_date`, `attachment_path`, `modidate`) VALUES
-(1, 3, 1, 'RUPP', '44/44/4444', 'images/scan0314.pdf_1.pdf', ''),
-(2, 3, 2, 'NUM', '22/22/2222', '0', ''),
-(3, 3, 3, '', '', '', ''),
-(4, 5, 1, 'NIM', '55/55/5555', 'images/scan0314.pdf_1.pdf', ''),
-(5, 5, 2, 'Royal', '66/66/6666', '0', ''),
-(6, 5, 3, '', '', '', '');
+(10, 8, 2, 'AUT', '12/12/2017', 'images/ma_file_candidate_8.pdf', ''),
+(9, 8, 1, 'RUPP', '10/10/2006', 'images/ba_file_candidate_8.pdf', ''),
+(8, 7, 1, 'RUPP', '18/08/2008', 'images/ba_file_candidate_7.pdf', ''),
+(11, 9, 3, 'Korea', '23/12/2010', 'images/phd_file_candidate_9.pdf', ''),
+(12, 10, 1, 'RUPP', '11/11/1111', 'images/ba_file_candidate_10.pdf', '');
 
 -- --------------------------------------------------------
 
@@ -117,12 +115,23 @@ INSERT INTO `candidate_degree_records` (`id`, `candidate_id`, `degree_type_id`, 
 
 DROP TABLE IF EXISTS `candidate_experience_criteria`;
 CREATE TABLE IF NOT EXISTS `candidate_experience_criteria` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `candidate_id` int(11) NOT NULL,
   `institution` varchar(150) NOT NULL,
   `exp_detail` text NOT NULL,
-  `modidate` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `modidate` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `candidate_experience_criteria`
+--
+
+INSERT INTO `candidate_experience_criteria` (`id`, `candidate_id`, `institution`, `exp_detail`, `modidate`) VALUES
+(2, 7, 'NBC', 'Working as IT', '28-03-2018 10:30 am'),
+(3, 8, 'NBC', 'Working as security officer', '28-03-2018 10:38 am'),
+(4, 9, 'NBC', 'Clear system', '28-03-2018 10:46 am'),
+(5, 10, 'NBC', 'Playing', '28-03-2018 10:51 am');
 
 -- --------------------------------------------------------
 
@@ -148,13 +157,21 @@ CREATE TABLE IF NOT EXISTS `candidate_progress` (
   `interview_file` varchar(250) NOT NULL,
   `interview_report_des` text NOT NULL,
   `date_of_board_meeting` varchar(100) NOT NULL,
-  `meeting_outcome_reject` tinyint(4) NOT NULL,
+  `meeting_outcome_approval` tinyint(4) NOT NULL,
   `meeting_approval_no` varchar(100) NOT NULL,
   `date_of_meeting_approval` varchar(100) NOT NULL,
   `modidate` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `candidate_id` (`candidate_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `candidate_progress`
+--
+
+INSERT INTO `candidate_progress` (`id`, `candidate_id`, `is_inspection_assigned`, `composition_name1`, `composition_name2`, `composition_name3`, `applying_date`, `date_of_inspection_submission`, `inspection_decision_no`, `date_of_inspection_decision`, `inspection_report_file`, `inspection_report_des`, `date_of_interview`, `interview_file`, `interview_report_des`, `date_of_board_meeting`, `meeting_outcome_approval`, `meeting_approval_no`, `date_of_meeting_approval`, `modidate`) VALUES
+(1, 9, 1, 'Mr A', 'Mr B', 'Mr C', '12/12/2010', '', '', '', '', '', '', '', '', '', 0, '', '', '28-03-2018 10:46 am'),
+(2, 10, 1, 'Mr A', 'Mr B', 'Mr C', '12/12/2010', '11/11/1111', '200', '12/33/3333', 'images/inspection_report_candidate_10.pdf', 'report inspected', '', '', '', '', 0, '', '', '28-03-2018 10:51 am');
 
 -- --------------------------------------------------------
 
@@ -171,31 +188,20 @@ CREATE TABLE IF NOT EXISTS `continuing_education` (
   `date_of_study` varchar(100) NOT NULL,
   `modidate` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `continuing_education`
 --
 
 INSERT INTO `continuing_education` (`id`, `lawyer_id`, `subject`, `number_of_hours`, `date_of_study`, `modidate`) VALUES
-(1, 44, '', 5, '12-03-2018 8:02 am', '12-03-2018 8:02 am'),
-(2, 45, '', 8, '12-03-2018 8:07 am', '12-03-2018 8:07 am'),
-(3, 51, 'Commercial Law', 10, '23-03-2018 2:49 am', '23-03-2018 2:49 am'),
-(4, 51, 'Civil Law', 5, '23-03-2018 2:49 am', '23-03-2018 2:49 am'),
-(5, 47, '', 1, '12-03-2018 8:18 am', '12-03-2018 8:18 am'),
-(6, 53, 'ABC', 10, '21-03-2018 3:47 pm', '21-03-2018 3:47 pm'),
-(7, 53, 'DDA', 6, '21-03-2018 3:47 pm', '21-03-2018 3:47 pm'),
-(8, 53, 'BCA', 3, '21-03-2018 3:47 pm', '21-03-2018 3:47 pm'),
-(9, 0, '', 0, '21-03-2018 3:47 pm', '21-03-2018 3:47 pm'),
-(10, 57, 'Chem', 1, '21-03-2018 4:00 pm', '21-03-2018 4:00 pm'),
-(11, 57, 'Math', 2, '21-03-2018 4:00 pm', '21-03-2018 4:00 pm'),
-(12, 51, 'Training', 7, '23-03-2018 2:49 am', '23-03-2018 2:49 am'),
-(13, 56, 'Culture', 5, '23-03-2018 10:21 am', '23-03-2018 10:21 am'),
-(14, 58, 'SSE', 7, '24-03-2018 10:15 am', '24-03-2018 10:15 am'),
-(15, 1, 'Computer', 9, '23-03-2018 4:57 pm', '23-03-2018 4:57 pm'),
-(16, 60, 'SAP', 10, '26-03-2018 3:15 pm', '26-03-2018 3:15 pm'),
-(17, 60, 'APA', 10, '26-03-2018 3:15 pm', '26-03-2018 3:15 pm'),
-(18, 60, 'BCAC', 15, '26-03-2018 3:15 pm', '26-03-2018 3:15 pm');
+(25, 68, 'Law', 15, '29-03-2018 1:20 pm', '29-03-2018 1:20 pm'),
+(24, 68, 'Math', 10, '29-03-2018 1:20 pm', '29-03-2018 1:20 pm'),
+(23, 64, 'Math', 1, '29-03-2018 12:51 pm', '29-03-2018 12:51 pm'),
+(22, 65, 'Law', 7, '29-03-2018 12:47 pm', '29-03-2018 12:47 pm'),
+(21, 65, 'Math', 9, '29-03-2018 12:47 pm', '29-03-2018 12:47 pm'),
+(20, 62, 'Law', 8, '29-03-2018 12:40 pm', '29-03-2018 12:40 pm'),
+(19, 63, 'Math', 10, '29-03-2018 12:33 pm', '29-03-2018 12:33 pm');
 
 -- --------------------------------------------------------
 
@@ -303,25 +309,18 @@ CREATE TABLE IF NOT EXISTS `discipline` (
   `complaints_desc` text NOT NULL,
   `is_presidential_reconciliation` tinyint(4) NOT NULL,
   `is_inspection` tinyint(4) NOT NULL,
-  `complaints_path` varchar(250) NOT NULL,
+  `complaints_file` varchar(250) NOT NULL,
   `cd_id` int(11) NOT NULL COMMENT 'id from council decision',
   `modidate` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `discipline`
 --
 
-INSERT INTO `discipline` (`id`, `lawyer_id`, `lawyer_code`, `complaints_code`, `complaints_desc`, `is_presidential_reconciliation`, `is_inspection`, `complaints_path`, `cd_id`, `modidate`) VALUES
-(16, 51, '', '', 'second sue', 1, 1, ' ', 3, '21-03-2018 2:29 pm'),
-(15, 51, '', '', 'second sue', 1, 1, ' ', 3, '21-03-2018 2:29 pm'),
-(5, 36, '', '', 'Hello  ggdd', 1, 0, '', 1, '21-03-2018 8:55 am'),
-(6, 37, '', '', 'បិរុយ ហដដ', 1, 0, '', 0, '20-03-2018 3:46 pm'),
-(7, 38, '', '', 'ក្យក កហដ', 1, 0, '', 0, '20-03-2018 3:48 pm'),
-(14, 52, '', '', 'ddd bbb', 1, 1, '', 2, '21-03-2018 2:28 pm'),
-(13, 51, '', '', 'gg bbbb', 1, 1, '', 3, '21-03-2018 2:28 pm'),
-(17, 52, '', '', 'Second Sue', 1, 0, ' ', 0, '23-03-2018 2:29 am');
+INSERT INTO `discipline` (`id`, `lawyer_id`, `lawyer_code`, `complaints_code`, `complaints_desc`, `is_presidential_reconciliation`, `is_inspection`, `complaints_file`, `cd_id`, `modidate`) VALUES
+(18, 67, '', '', 'Hello', 0, 0, '', 0, '29-03-2018 1:03 pm');
 
 -- --------------------------------------------------------
 
@@ -336,34 +335,25 @@ CREATE TABLE IF NOT EXISTS `lawyers` (
   `lawyer_name_en` varchar(100) NOT NULL,
   `lawyer_name_kh` varchar(250) NOT NULL,
   `lawyer_dob` varchar(100) NOT NULL,
+  `date_of_code_validity` varchar(100) NOT NULL,
+  `code_validity_file` varchar(250) NOT NULL,
   `modidate` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `lawyer_code` (`lawyer_code`)
-) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `lawyers`
 --
 
-INSERT INTO `lawyers` (`id`, `lawyer_code`, `lawyer_name_en`, `lawyer_name_kh`, `lawyer_dob`, `modidate`) VALUES
-(1, '007', 'Koy Ponleu', 'កុយ ពន្លឺ', '18/10/1984', '23-03-2018 4:57 pm'),
-(2, '008', 'Ban Yanno', 'បាន យ៉ាន់ណូ', '11/10/1990', '07-03-2018 8:35 am'),
-(3, '009', 'Chhuy Yarttak', 'ឈុយ យ៉ាតតាក់', '11/10/1990', '07-03-2018 8:52 am'),
-(31, 'JJ111', 'jklsdf', 'JKDLSD', '44/44/4444', '12-03-2018 3:08 am'),
-(38, 'jjdd', 'klsdfjkl', 'UEI', '11/11/1111', '12-03-2018 3:33 am'),
-(36, 'Y1', 'MONNN', 'MONNN', '11/11/1111', '12-03-2018 3:30 am'),
-(37, '333333', 'nnsdfn', 'NNDN', '11/11/1111', '12-03-2018 3:31 am'),
-(34, 'PP112233', 'Kan', 'កាន', '11/12/2000', '12-03-2018 3:23 am'),
-(60, 'RL001', 'Rithy Ly', 'លី រិទ្ធី', '12/12/1990', '26-03-2018 3:15 pm'),
-(58, 'BD1234', 'Born Da', 'បន ដា', '16/81/6898', '24-03-2018 10:15 am'),
-(57, 'PIS1234', 'Piseth', 'ពិសិទ្ធ', '12/12/1985', '21-03-2018 4:00 pm'),
-(56, 'JJ009', 'Ranger', 'Ranger', '11/11/2223', '23-03-2018 10:21 am'),
-(55, '444ff', '1111111', 'TDD', '22/22/2222', '21-03-2018 3:57 pm'),
-(54, '3333', '111', 'TEST', '11/11/1111', '21-03-2018 3:56 pm'),
-(53, 'PPO001', 'Ravan', 'រាវាន់', '12/12/1992', '21-03-2018 3:47 pm'),
-(52, 'SS001', 'Sok Sokha', 'សុខ សុខា', '12/12/1980', '20-03-2018 1:24 pm'),
-(51, '143', 'Suon Visal', 'សួន វិសាល', '10/03/1965', '23-03-2018 2:49 am'),
-(50, 'LS001', 'Leng Seng', 'លេង សិង', '11/11/1111', '13-03-2018 9:27 am');
+INSERT INTO `lawyers` (`id`, `lawyer_code`, `lawyer_name_en`, `lawyer_name_kh`, `lawyer_dob`, `date_of_code_validity`, `code_validity_file`, `modidate`) VALUES
+(68, '444', 'MMM', 'MNA', '11/11/1111', '', '', '29-03-2018 1:20 pm'),
+(67, '222', 'pppp', 'OOIE', '22/22/2___', '', '', '29-03-2018 1:03 pm'),
+(66, '444443', 'BAC', 'ABC', '33/33/333_', '', '', '29-03-2018 1:02 pm'),
+(64, '9999', 'Dith Sochang', 'Dith Sochang', '11/11/1111', '', '', '29-03-2018 12:51 pm'),
+(65, '77', 'Ban Yano', 'បាន យ៉ាណូ', '11/11/1111', '', '', '29-03-2018 12:47 pm'),
+(63, '4444', 'Rithy ly', 'លី រិទ្ធី', '22/22/2222', '', '', '29-03-2018 12:33 pm'),
+(62, '181084', 'Koy Ponleu', 'កុយ ពន្លឺ', '18/10/1984', '', '', '29-03-2018 12:40 pm');
 
 -- --------------------------------------------------------
 
@@ -403,50 +393,57 @@ CREATE TABLE IF NOT EXISTS `professional_conditions` (
   `is_pursue_study` tinyint(1) NOT NULL,
   `fulltime_no` varchar(100) NOT NULL,
   `date_of_fulltime` varchar(100) NOT NULL,
+  `fulltime_file` varchar(250) NOT NULL,
   `date_of_righteousness` varchar(100) NOT NULL,
   `date_end_of_righteousness` varchar(100) NOT NULL,
   `cert_of_pro_accr_no` varchar(100) NOT NULL,
   `cert_of_pro_accr_date` varchar(100) NOT NULL,
+  `cert_of_pro_file` varchar(250) NOT NULL,
   `date_of_without_righteousness` varchar(100) NOT NULL,
   `date_of_prob_righteousness` varchar(100) NOT NULL,
   `no_prob_righteousness` varchar(100) NOT NULL,
   `date_of_no_prob_righteousness` varchar(100) NOT NULL,
+  `no_probabtion_file` varchar(250) NOT NULL,
   `fulltime_approval` varchar(100) NOT NULL,
   `date_of_fulltime_approval` varchar(100) NOT NULL,
+  `fulltime_approval_file` varchar(250) NOT NULL,
   `firm_name` varchar(250) NOT NULL,
   `authorisation_number` varchar(100) NOT NULL,
   `permission_number` varchar(100) NOT NULL,
   `firm_validity` varchar(100) NOT NULL,
+  `firm_approval_file` varchar(250) NOT NULL,
+  `firm_validity_file` varchar(250) NOT NULL,
   `out_bar_validity` varchar(100) NOT NULL,
+  `proposal_file` varchar(250) NOT NULL,
   `out_bar_no` varchar(100) NOT NULL,
   `out_bar_decision` varchar(100) NOT NULL,
   `no_pro_no` varchar(100) NOT NULL,
   `date_of_no_pro` varchar(100) NOT NULL,
+  `no_pro_file` varchar(250) NOT NULL,
   `out_list_validity` varchar(100) NOT NULL,
+  `out_list_validity_file` varchar(250) NOT NULL,
   `out_list_reason` text NOT NULL,
   `prohibition_statement` varchar(250) NOT NULL,
+  `prohibition_statement_file` varchar(250) NOT NULL,
   `date_of_prohibition` varchar(100) NOT NULL,
   `prohibition_reason` text NOT NULL,
   `modidate` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `lawyer_id` (`lawyer_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `professional_conditions`
 --
 
-INSERT INTO `professional_conditions` (`id`, `lawyer_id`, `cert_completion_no`, `date_of_completion`, `date_of_prob`, `is_pursue_study`, `fulltime_no`, `date_of_fulltime`, `date_of_righteousness`, `date_end_of_righteousness`, `cert_of_pro_accr_no`, `cert_of_pro_accr_date`, `date_of_without_righteousness`, `date_of_prob_righteousness`, `no_prob_righteousness`, `date_of_no_prob_righteousness`, `fulltime_approval`, `date_of_fulltime_approval`, `firm_name`, `authorisation_number`, `permission_number`, `firm_validity`, `out_bar_validity`, `out_bar_no`, `out_bar_decision`, `no_pro_no`, `date_of_no_pro`, `out_list_validity`, `out_list_reason`, `prohibition_statement`, `date_of_prohibition`, `prohibition_reason`, `modidate`) VALUES
-(1, 50, '', '22/22/2222', '33/33/3333', 0, '', '', '22/33/3333', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '13-03-2018 9:27 am'),
-(2, 51, '', '33/44/5566', '22/22/2222', 1, '', '11/11/1333', '99/99/9999', '', '', '', '', '22/22/2222', '', '', '', '', 'ABC', '', '', '', '', '', '', '', '', '', '', 'final', '', '', '23-03-2018 2:49 am'),
-(3, 52, '', '18/12/2010', '20/12/2011', 0, '', '', '', '', '', '', '', '', '', '', '', '', 'KN Legal', '1234', '', '', '', '', '', '', '', '', '', 'Approved', '', '', '20-03-2018 1:24 pm'),
-(4, 53, '', '11/11/1111', '22/22/2222', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '88/88/8888', '', '9999', '', '', '', '', '000', '', '', '21-03-2018 3:47 pm'),
-(5, 54, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '21-03-2018 3:56 pm'),
-(6, 55, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '21-03-2018 3:57 pm'),
-(7, 56, '', '22/33/4455', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '23-03-2018 10:21 am'),
-(8, 57, '', '22/22/2222', '33/33/3333', 1, '', '', '', '', '', '', '', '', '', '', '', '', 'BELL', '333', 'UHA', '77/77/7777', '', '', '', '', '', '', '', '', '', '', '21-03-2018 4:00 pm'),
-(9, 58, '', '12/12/3333', '12/11/1233', 0, '', '12/12/1111', '', '', '', '', '', '', '', '', '', '', 'MOT', '', '12', '', '12/12/2019', '', '', '', '', '', '', '', '', '', '24-03-2018 10:15 am'),
-(10, 60, '1001', '12/12/1998', '11/10/2009', 1, '1100', '09/08/2006', '12/07/2006', '15/09/2008', '130', '25/10/2009', '', '19/12/2010', '150', '13/10/2010', '160', '29/12/2016', 'Kn Legal ABC', '170', '180', '14/12/2020', '29/10/2019', '170', '12/12/2009', '180', '19/10/2019', '12/12/2010', 'reason', '190', '28/12/2020', 'reason123', '26-03-2018 3:15 pm');
+INSERT INTO `professional_conditions` (`id`, `lawyer_id`, `cert_completion_no`, `date_of_completion`, `date_of_prob`, `is_pursue_study`, `fulltime_no`, `date_of_fulltime`, `fulltime_file`, `date_of_righteousness`, `date_end_of_righteousness`, `cert_of_pro_accr_no`, `cert_of_pro_accr_date`, `cert_of_pro_file`, `date_of_without_righteousness`, `date_of_prob_righteousness`, `no_prob_righteousness`, `date_of_no_prob_righteousness`, `no_probabtion_file`, `fulltime_approval`, `date_of_fulltime_approval`, `fulltime_approval_file`, `firm_name`, `authorisation_number`, `permission_number`, `firm_validity`, `firm_approval_file`, `firm_validity_file`, `out_bar_validity`, `proposal_file`, `out_bar_no`, `out_bar_decision`, `no_pro_no`, `date_of_no_pro`, `no_pro_file`, `out_list_validity`, `out_list_validity_file`, `out_list_reason`, `prohibition_statement`, `prohibition_statement_file`, `date_of_prohibition`, `prohibition_reason`, `modidate`) VALUES
+(17, 68, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '29-03-2018 1:20 pm'),
+(16, 67, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '29-03-2018 1:03 pm'),
+(15, 66, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '29-03-2018 1:02 pm'),
+(14, 65, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '29-03-2018 12:47 pm'),
+(11, 62, '100', '11/10/2006', '10/08/2006', 1, '200', '15/12/2017', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'KN Legal', '300', '2050', '25/12/2020', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'undefined', '29-03-2018 12:40 pm'),
+(12, 63, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '29-03-2018 12:33 pm'),
+(13, 64, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '29-03-2018 12:51 pm');
 
 -- --------------------------------------------------------
 
