@@ -119,7 +119,6 @@ $('#insert_inspection').click (function () {
         contentType: false,  // tell jQuery not to set contentType
 
         success: function (data) {
-            console.log(data['error']);
             alert(JSON.stringify(data));
             
         },

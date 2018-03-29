@@ -137,7 +137,7 @@ public function __construct()
 				if($progress["interview_file"]){
 					$progress["interview_file"]  = $this->upload_file("interview_file","interview_file_candidate_".$progress['candidate_id']);
 				}
-				error_log(date('d-m-Y g:i a')." ".$progress."\r\n", 3, "candidate.log");	
+				error_log(date('d-m-Y g:i a')." ".json_encode($progress)."\r\n", 3, "candidate.log");	
 				$result4 = $this->Candidate_progress_model->insert($progress);	
 			}
 		}

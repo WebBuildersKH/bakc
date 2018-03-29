@@ -70,6 +70,7 @@
                     <?php
                   //  print_r($lawyers);
                     $i=1;
+                  if($lawyers){
                     foreach($lawyers as $lawyer){
                       echo "<tr><td>".$i."</td><td>";
                       echo $lawyer->lawyer_code."</td><td>";
@@ -84,6 +85,7 @@
                       echo "<label>កែប្រែ</label></a></td></tr>";
                       $i++;
                     }
+                  }
                     ?> 						  
               </tbody>
             </table>	 

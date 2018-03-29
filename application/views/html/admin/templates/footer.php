@@ -37,7 +37,7 @@
     <script src="<?php echo base_url();?>public/vendors/jszip/dist/jszip.min.js"></script>
     <script src="<?php echo base_url();?>public/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="<?php echo base_url();?>public/vendors/pdfmake/build/vfs_fonts.js"></script>
-	  <script src="<?php echo base_url();?>public/build/js/formwizard.js"></script>
+	  <script src="<?php echo base_url();?>public/build/js/lawyers.js"></script>
     <script src="<?php echo base_url();?>public/build/js/operations.js"></script>
     <script src="<?php echo base_url();?>public/build/js/inspection.js"></script>
     

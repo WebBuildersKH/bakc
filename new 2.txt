@@ -31,3 +31,38 @@ textarea = final_statement_reason (db: prohibition_reason )
 input name = out_list_validity
 
 textarea = out_list_reason
+
+
+===========================
+Added more field
+
+input name = date_of_code_validity
+
+file = code_validity_file
+
+file = fulltime_file
+
+file = cert_of_pro_file
+
+file = no_probabtion_file
+
+file = fulltime_approval_file
+
+file = firm_approval_file
+
+file = firm_validity_file
+
+file = proposal_file
+
+file = out_list_validity_file
+
+file = no_pro_file
+
+file = prohibition_statement_file
+
+file = complaints_file
+
+
+
+
+

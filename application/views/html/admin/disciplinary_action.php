@@ -66,10 +66,10 @@
                       foreach($discipline_list as $case)
                       {               
                         echo "<tr><td>".++$i."</td><td>";
-                        echo $case->lawyer_name_kh."</td><td>";
-                        echo $case->complaints_desc."</td><td>";
-                        echo $case->complaints_path."</td><td>";
-                        echo $case->modidate."</td><td>";   
+                        echo "<label class='control-label-kh'>".$case->lawyer_name_kh."</label></td><td>";
+                        echo "<label class='control-label-kh'>".$case->complaints_desc."</label></td><td>";
+                        echo "<label class='control-label-kh'>".$case->complaints_file."</label></td><td>";
+                        echo "<label class='control-label-kh'>".$case->modidate."</label></td><td>";   
                         echo "<a class='btn btn-app1 edit-discipline' data-toggle='modal' data-id='".$case->id."'>";
                         echo "<i class='glyphicon glyphicon-edit'></i><label>កែប្រែ</label></a></td></tr>";
                       

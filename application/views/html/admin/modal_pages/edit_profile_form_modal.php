@@ -536,7 +536,7 @@ function myFunction(){
     $("input[name='e_subject']").each(function(){
         subjects.push(this.value);
 	});
-	
+	alert(subjects);
 //	alert(number_of_hours);
 	var data_collection = { 
 	'lawyer_id': $('input[name=hidden_id]').val(),	

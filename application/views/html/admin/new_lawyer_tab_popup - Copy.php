@@ -65,12 +65,11 @@
 			<br />
 			<div class="form-group">				
 				<label class="control-label-kh"><b>២.១ វិញ្ញាបនប័ត្រសម្បទាវិជ្ជាជីវៈមេធាវី</b></label>
-				<input type="radio" name="is_2" id="is_2" value="is_2_1" checked="checked">
-				<label class="control-label-kh"><b>២.២ លក្ខខណ្ឌប្រកបតាមមាត្រា ៣២</b></label>
+				<input type="radio" name="is_2" id="is_2" value="is_2_1">
+				<label class="control-label-kh"><b>២.១ លក្ខខណ្ឌប្រកបតាមមាត្រា ៣២</b></label>
 				<input type="radio" name="is_2" id="is_2" value="is_2_2">
 			</div>
 			<br />
-		<div id="two-one">
 			<div class="form-inline">
 				<div class="form-group">
 					<label class="control-label-kh"><b>២.១.១</b> បញ្ចប់</label>
@@ -129,9 +128,13 @@
 					<input type="file" id="fulltime_file" name="fulltime_file"/>
 				</div>
 			</div>	
-		</div> 
-			<!-- END SECTION 2.1 -->
-		<div id="two-two">
+			<!-- END SESSION -->
+			<hr />
+			<div class="form-group">
+				<label class="control-label-kh"><b>២.២	លក្ខខណ្ឌប្រកបតាមមាត្រា ៣២</b></label>
+			</div>
+			<br />
+			<!-- END SESSION -->
 			<div class="form-inline">
 				<div class="form-group">
 					<label class="control-label-kh"><b>២.២.១</b> ត្រូវបំពេញសុក្រិត្យការ</label>
@@ -236,8 +239,7 @@
 				<div class="form-group">
 					<input type="file" id="fulltime_approval_file" name="fulltime_approval_file"/>
 				</div>
-			</div>
-		</div> <!-- END SECTION 2.2 -->								
+			</div>								
 			<hr />
 			<!-- END SESSION -->
 			<div class="form-group">

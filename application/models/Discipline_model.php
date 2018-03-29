@@ -15,7 +15,7 @@ class Discipline_model extends CI_Model {
            'complaints_desc' => $disc['complaints_desc'] ,
            'is_presidential_reconciliation' => $disc['is_presidential_reconciliation'] ,
 		   'is_inspection' => $disc['is_inspection'] ,
-		   'complaints_path' => $disc['complaints_path'] ,
+		   'complaints_file' => $disc['complaints_file'] ,
            'cd_id' => $disc['cd_id'] ,
            'modidate' => $disc['modidate']	   
 		);
@@ -57,7 +57,7 @@ class Discipline_model extends CI_Model {
 	public function get_data()
 	{
 		$query = $this->db->query("SELECT d.id,d.lawyer_id,l.lawyer_code,l.lawyer_name_kh,
-		l.lawyer_name_en,d.complaints_path,d.modidate,d.complaints_desc,d.is_presidential_reconciliation,
+		l.lawyer_name_en,d.complaints_file,d.modidate,d.complaints_desc,d.is_presidential_reconciliation,
 		d.is_inspection,d.cd_id FROM discipline d,lawyers l WHERE d.lawyer_id=l.id");
 		 if ($query->num_rows() > 0)
 		 {
